@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wyf0912.github.io">
-  <title>Archives: 2018 | WangYufei的博客</title>
+  <title>数字电路学习笔记 | WangYufei的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="WangYufei的博客">
-<meta property="og:url" content="http://wyf0912.github.io/archives/2018/index.html">
+  <meta name="description" content="数制编码  8421码：用4位2进制码表示一位十进制字符，位权依次8、4、2、1，所以不允许出现1010-1111。例如 258_{10} = (0010 0101 1000)_{8421码}     2421码：位权分别为2421。2421码不具备单值性。所以2421码不允许出现0101-1010的6种状态。 余3码 由8421码加上0011形成的一中无权码。不允许出现 0000、0001、00">
+<meta name="keywords" content="数字电路，学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字电路学习笔记">
+<meta property="og:url" content="http://wyf0912.github.io/2018/03/13/数字电路学习笔记/index.html">
 <meta property="og:site_name" content="WangYufei的博客">
+<meta property="og:description" content="数制编码  8421码：用4位2进制码表示一位十进制字符，位权依次8、4、2、1，所以不允许出现1010-1111。例如 258_{10} = (0010 0101 1000)_{8421码}     2421码：位权分别为2421。2421码不具备单值性。所以2421码不允许出现0101-1010的6种状态。 余3码 由8421码加上0011形成的一中无权码。不允许出现 0000、0001、00">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-13T07:34:55.093Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WangYufei的博客">
+<meta name="twitter:title" content="数字电路学习笔记">
+<meta name="twitter:description" content="数制编码  8421码：用4位2进制码表示一位十进制字符，位权依次8、4、2、1，所以不允许出现1010-1111。例如 258_{10} = (0010 0101 1000)_{8421码}     2421码：位权分别为2421。2421码不具备单值性。所以2421码不允许出现0101-1010的6种状态。 余3码 由8421码加上0011形成的一中无权码。不允许出现 0000、0001、00">
   
     <link rel="alternative" href="/atom.xml" title="WangYufei的博客" type="application/atom+xml">
   
@@ -134,36 +139,146 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数字电路学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/13/数字电路学习笔记/" class="archive-article-date">
-  	<time datetime="2018-03-13T06:35:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/13/数字电路学习笔记/">数字电路学习笔记</a>
+    <h1 class="article-title" itemprop="name">
+      数字电路学习笔记
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/03/13/数字电路学习笔记/" class="archive-article-date">
+  	<time datetime="2018-03-13T06:35:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数制编码"><a href="#数制编码" class="headerlink" title="数制编码"></a>数制编码</h1><blockquote>
+<ul>
+<li>8421码：用4位2进制码表示一位十进制字符，位权依次8、4、2、1，所以不允许出现1010-1111。<br>例如 258_{10} = (0010 0101 1000)_{8421码}</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>2421码：位权分别为2421。2421码不具备单值性。所以2421码不允许出现0101-1010的6种状态。</li>
+<li>余3码 由8421码加上0011形成的一中无权码。不允许出现 0000、0001、0010、1101、1110、1111。<blockquote>
+<p><strong>结论</strong> 余3码相加，如果有进位，则结果加3，如果没近卫，则结果减三。</p>
+</blockquote>
+</li>
+<li>格雷码</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>8421码</th>
+<th>格雷码</th>
+<th>十进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0000</td>
+<td>0000</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0001</td>
+<td>0001</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0010</td>
+<td>0011</td>
+<td>2</td>
+</tr>
+<tr>
+<td>0011</td>
+<td>0010</td>
+<td>3</td>
+</tr>
+<tr>
+<td>0100</td>
+<td>0110</td>
+<td>4</td>
+</tr>
+<tr>
+<td>0101</td>
+<td>0111</td>
+<td>5</td>
+</tr>
+<tr>
+<td>0110</td>
+<td>0101</td>
+<td>6</td>
+</tr>
+<tr>
+<td>0111</td>
+<td>0100</td>
+<td>7</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>1100</td>
+<td>8</td>
+</tr>
+<tr>
+<td>1001</td>
+<td>1101</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>例如四位二进制从7-&gt;8,0111-&gt;1000。而格雷码只需一位发生变化。由于电子器件变化速度不一致，可能产生错误代码。可见，格雷码从编码上提高了可靠性</p>
+<blockquote>
+<p><strong>格雷码编码公式</strong><br>$G_i=B_{i+1} \lxor B_i$<br>$G_{n-1}=B_{n-1}$<br><strong>格雷码到二进制码</strong><br>待补充</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<ul>
+<li>ASCII码</li>
+<li>奇偶校验码</li>
+</ul>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -175,168 +290,122 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://wyf0912.github.io/2018/03/13/数字电路学习笔记/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/13/计算机网络学习笔记/" class="archive-article-date">
-  	<time datetime="2018-03-13T02:21:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/13/计算机网络学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">计算机网络学习笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/13/计算机网络学习笔记/">计算机网络学习笔记</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/13/C-C-笔记/" class="archive-article-date">
-  	<time datetime="2018-03-13T01:27:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/13/C-C-笔记/">C/C++笔记</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C/C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/13/faster-RCNN学习笔记/" class="archive-article-date">
-  	<time datetime="2018-03-13T01:25:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/13/faster-RCNN学习笔记/">faster-RCNN学习笔记</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机视觉</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">cv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/12/Hello-world-0/" class="archive-article-date">
-  	<time datetime="2018-03-12T14:49:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
-</a>
-        </div>
-    	 
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://wyf0912.github.io/2018/03/13/数字电路学习笔记/",
+  owner: 'wyf0912',
+  repo: 'wyf0912.github.io',
+  oauth: {
+    client_id: '97a4d5ea8203861ad0e8',
+    client_secret: '522685d2eb11746b934470aa9270ccd24dccb04c',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/12/Hello-world-0/">Hello world</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -359,8 +428,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
