@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://wyf0912.github.io">
   <title>计算机网络学习笔记 | WangYufei的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="成绩组成：期末70%，实验10%，作业10%，平时10% 第一章：内容大纲 Traceroute程序：提供从源节点到到目的节点路径上所有路由器的延迟测量 吞吐量：在发送方和接收方之间单位时间内成功地传送数据的数量 tcp链接平分带宽。假设10个connectors。 min(R_c,R_s,R/10) 四种延迟：处理延时 排队延时 传输延时 传播延时分层的体系结构TCP/IP的五层模型 应用层ap">
+  <meta name="description" content="成绩组成：期末70%，实验10%，作业10%，平时10% 第一章：内容大纲什么是因特网计算机网络是两台以上具有独立操作系统的计算机通过某些介质连接成的相互共享软硬件资源的结合体 具体构成描述端系统通过通信链路和分组交换机连接在一起。链路的传输速率是以bps度量的。当一台端系统向另一台端系统发送数据时，发送端系统将数据分段，并为每段加上首部字节，由此形成的信息包被称为分组（packet） 。两种最著">
 <meta name="keywords" content="计算机网络,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络学习笔记">
 <meta property="og:url" content="http://wyf0912.github.io/2018/03/13/计算机网络学习笔记/index.html">
 <meta property="og:site_name" content="WangYufei的博客">
-<meta property="og:description" content="成绩组成：期末70%，实验10%，作业10%，平时10% 第一章：内容大纲 Traceroute程序：提供从源节点到到目的节点路径上所有路由器的延迟测量 吞吐量：在发送方和接收方之间单位时间内成功地传送数据的数量 tcp链接平分带宽。假设10个connectors。 min(R_c,R_s,R/10) 四种延迟：处理延时 排队延时 传输延时 传播延时分层的体系结构TCP/IP的五层模型 应用层ap">
+<meta property="og:description" content="成绩组成：期末70%，实验10%，作业10%，平时10% 第一章：内容大纲什么是因特网计算机网络是两台以上具有独立操作系统的计算机通过某些介质连接成的相互共享软硬件资源的结合体 具体构成描述端系统通过通信链路和分组交换机连接在一起。链路的传输速率是以bps度量的。当一台端系统向另一台端系统发送数据时，发送端系统将数据分段，并为每段加上首部字节，由此形成的信息包被称为分组（packet） 。两种最著">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-13T03:29:27.067Z">
+<meta property="og:updated_time" content="2018-03-13T05:18:46.096Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络学习笔记">
-<meta name="twitter:description" content="成绩组成：期末70%，实验10%，作业10%，平时10% 第一章：内容大纲 Traceroute程序：提供从源节点到到目的节点路径上所有路由器的延迟测量 吞吐量：在发送方和接收方之间单位时间内成功地传送数据的数量 tcp链接平分带宽。假设10个connectors。 min(R_c,R_s,R/10) 四种延迟：处理延时 排队延时 传输延时 传播延时分层的体系结构TCP/IP的五层模型 应用层ap">
+<meta name="twitter:description" content="成绩组成：期末70%，实验10%，作业10%，平时10% 第一章：内容大纲什么是因特网计算机网络是两台以上具有独立操作系统的计算机通过某些介质连接成的相互共享软硬件资源的结合体 具体构成描述端系统通过通信链路和分组交换机连接在一起。链路的传输速率是以bps度量的。当一台端系统向另一台端系统发送数据时，发送端系统将数据分段，并为每段加上首部字节，由此形成的信息包被称为分组（packet） 。两种最著">
   
     <link rel="alternative" href="/atom.xml" title="WangYufei的博客" type="application/atom+xml">
   
@@ -160,11 +160,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>成绩组成：期末70%，实验10%，作业10%，平时10%</p>
-<h2 id="第一章：内容大纲"><a href="#第一章：内容大纲" class="headerlink" title="第一章：内容大纲"></a>第一章：内容大纲</h2><ul>
+<h1 id="第一章：内容大纲"><a href="#第一章：内容大纲" class="headerlink" title="第一章：内容大纲"></a>第一章：内容大纲</h1><h2 id="什么是因特网"><a href="#什么是因特网" class="headerlink" title="什么是因特网"></a>什么是因特网</h2><p>计算机网络是两台以上具有<strong>独立操作系统</strong>的计算机通过某些介质连接成的相互共享软硬件资源的结合体</p>
+<h3 id="具体构成描述"><a href="#具体构成描述" class="headerlink" title="具体构成描述"></a>具体构成描述</h3><p><strong>端系统</strong>通过<strong>通信链路</strong>和<strong>分组交换机</strong>连接在一起。链路的传输速率是以<strong>bps</strong>度量的。当一台端系统向另一台端系统发送数据时，发送端系统将数据分段，并为每段加上首部字节，由此形成的信息包被称为<strong>分组（packet）</strong> 。两种最著名的分组交换机是路由器和链路层交换机。</p>
+<h2 id="网络边缘"><a href="#网络边缘" class="headerlink" title="网络边缘"></a>网络边缘</h2><h2 id="网络核心"><a href="#网络核心" class="headerlink" title="网络核心"></a>网络核心</h2><h3 id="电路交换"><a href="#电路交换" class="headerlink" title="电路交换"></a>电路交换</h3><h4 id="电路交换网络中的多路复用"><a href="#电路交换网络中的多路复用" class="headerlink" title="电路交换网络中的多路复用"></a>电路交换网络中的多路复用</h4><blockquote>
+<p>频分多路复用（Frequency-Division Multiplexing, FDM）<br>时分多路复用（Time-Division Multiplexing, TDM)</p>
+</blockquote>
+<h3 id="分组交换"><a href="#分组交换" class="headerlink" title="分组交换"></a>分组交换</h3><h2 id="分组交换网中的时延、丢包和吞吐量"><a href="#分组交换网中的时延、丢包和吞吐量" class="headerlink" title="分组交换网中的时延、丢包和吞吐量"></a>分组交换网中的时延、丢包和吞吐量</h2><ul>
 <li>Traceroute程序：提供从源节点到到目的节点路径上所有路由器的延迟测量</li>
 <li>吞吐量：在发送方和接收方之间单位时间内成功地传送数据的数量</li>
 <li>tcp链接平分带宽。假设10个connectors。 min(R_c,R_s,R/10)</li>
-<li>四种延迟：处理延时 排队延时 传输延时 传播延时<h3 id="分层的体系结构"><a href="#分层的体系结构" class="headerlink" title="分层的体系结构"></a>分层的体系结构</h3><h4 id="TCP-IP的五层模型"><a href="#TCP-IP的五层模型" class="headerlink" title="TCP/IP的五层模型"></a>TCP/IP的五层模型</h4></li>
+<li>四种延迟：处理延时 排队延时 传输延时 传播延时<h3 id="分层的体系结构"><a href="#分层的体系结构" class="headerlink" title="分层的体系结构"></a>分层的体系结构</h3><h3 id="TCP-IP的五层模型"><a href="#TCP-IP的五层模型" class="headerlink" title="TCP/IP的五层模型"></a>TCP/IP的五层模型</h3></li>
 <li>应用层application<blockquote>
 <p>支持网络应用 报文传送 FTP,SMTP,STTP</p>
 </blockquote>
@@ -187,7 +192,7 @@
 </li>
 </ul>
 <p>每一层传输的数据、每层的功能</p>
-<h4 id="ISO-OSI模型"><a href="#ISO-OSI模型" class="headerlink" title="ISO/OSI模型"></a>ISO/OSI模型</h4><p>7层模型 加了两层</p>
+<h3 id="ISO-OSI模型"><a href="#ISO-OSI模型" class="headerlink" title="ISO/OSI模型"></a>ISO/OSI模型</h3><p>7层模型 加了两层</p>
 <ul>
 <li>表示层</li>
 <li>会话层</li>
@@ -199,7 +204,7 @@
 <li>DATAGRAM $H_n$(IP地址)|$H_t$|M</li>
 <li>FRAME $H_l$(MAC地址)|$H_n$|$H_t$|M</li>
 </ul>
-<h3 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h3><p>因特网最初的设计并没有考虑太多安全问题</p>
+<h2 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h2><p>因特网最初的设计并没有考虑太多安全问题</p>
 <blockquote>
 <p>DOS攻击：攻击使得网络、主机或其他基础设施部分不能由合法用户所使用<br>控制大量主机同时连接服务器</p>
 <ol>
@@ -221,7 +226,7 @@
 <li>具有虚假原地址的分组注入因特网</li>
 </ul>
 </blockquote>
-<h3 id="计算机网络和Internet发展史"><a href="#计算机网络和Internet发展史" class="headerlink" title="计算机网络和Internet发展史"></a>计算机网络和Internet发展史</h3>
+<h2 id="计算机网络和Internet发展史"><a href="#计算机网络和Internet发展史" class="headerlink" title="计算机网络和Internet发展史"></a>计算机网络和Internet发展史</h2>
       
 
       
