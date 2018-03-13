@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="WangYufei的博客">
 <meta property="og:description" content="成绩组成：期末70%，实验10%，作业10%，平时10% 第一章：内容大纲什么是因特网计算机网络是两台以上具有独立操作系统的计算机通过某些介质连接成的相互共享软硬件资源的结合体 具体构成描述端系统通过通信链路和分组交换机连接在一起。链路的传输速率是以bps度量的。当一台端系统向另一台端系统发送数据时，发送端系统将数据分段，并为每段加上首部字节，由此形成的信息包被称为分组（packet） 。两种最著">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-13T05:18:46.096Z">
+<meta property="og:updated_time" content="2018-03-13T05:56:28.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络学习笔记">
 <meta name="twitter:description" content="成绩组成：期末70%，实验10%，作业10%，平时10% 第一章：内容大纲什么是因特网计算机网络是两台以上具有独立操作系统的计算机通过某些介质连接成的相互共享软硬件资源的结合体 具体构成描述端系统通过通信链路和分组交换机连接在一起。链路的传输速率是以bps度量的。当一台端系统向另一台端系统发送数据时，发送端系统将数据分段，并为每段加上首部字节，由此形成的信息包被称为分组（packet） 。两种最著">
@@ -157,6 +157,33 @@
         
       </header>
     
+    <!-- 目录内容 -->
+
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章：内容大纲"><span class="toc-number">1.</span> <span class="toc-text">第一章：内容大纲</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是因特网"><span class="toc-number">1.1.</span> <span class="toc-text">什么是因特网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#具体构成描述"><span class="toc-number">1.1.1.</span> <span class="toc-text">具体构成描述</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络边缘"><span class="toc-number">1.2.</span> <span class="toc-text">网络边缘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络核心"><span class="toc-number">1.3.</span> <span class="toc-text">网络核心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#电路交换"><span class="toc-number">1.3.1.</span> <span class="toc-text">电路交换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电路交换网络中的多路复用"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">电路交换网络中的多路复用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分组交换"><span class="toc-number">1.3.2.</span> <span class="toc-text">分组交换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分组交换网中的时延、丢包和吞吐量"><span class="toc-number">1.4.</span> <span class="toc-text">分组交换网中的时延、丢包和吞吐量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分层的体系结构"><span class="toc-number">1.4.1.</span> <span class="toc-text">分层的体系结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP的五层模型"><span class="toc-number">1.4.2.</span> <span class="toc-text">TCP/IP的五层模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ISO-OSI模型"><span class="toc-number">1.4.3.</span> <span class="toc-text">ISO/OSI模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络安全"><span class="toc-number">1.5.</span> <span class="toc-text">网络安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络和Internet发展史"><span class="toc-number">1.6.</span> <span class="toc-text">计算机网络和Internet发展史</span></a></li></ol></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
+<!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
         <p>成绩组成：期末70%，实验10%，作业10%，平时10%</p>
@@ -356,6 +383,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章：内容大纲"><span class="toc-number">1.</span> <span class="toc-text">第一章：内容大纲</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是因特网"><span class="toc-number">1.1.</span> <span class="toc-text">什么是因特网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#具体构成描述"><span class="toc-number">1.1.1.</span> <span class="toc-text">具体构成描述</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络边缘"><span class="toc-number">1.2.</span> <span class="toc-text">网络边缘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络核心"><span class="toc-number">1.3.</span> <span class="toc-text">网络核心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#电路交换"><span class="toc-number">1.3.1.</span> <span class="toc-text">电路交换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电路交换网络中的多路复用"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">电路交换网络中的多路复用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分组交换"><span class="toc-number">1.3.2.</span> <span class="toc-text">分组交换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分组交换网中的时延、丢包和吞吐量"><span class="toc-number">1.4.</span> <span class="toc-text">分组交换网中的时延、丢包和吞吐量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分层的体系结构"><span class="toc-number">1.4.1.</span> <span class="toc-text">分层的体系结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP的五层模型"><span class="toc-number">1.4.2.</span> <span class="toc-text">TCP/IP的五层模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ISO-OSI模型"><span class="toc-number">1.4.3.</span> <span class="toc-text">ISO/OSI模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络安全"><span class="toc-number">1.5.</span> <span class="toc-text">网络安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络和Internet发展史"><span class="toc-number">1.6.</span> <span class="toc-text">计算机网络和Internet发展史</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -369,6 +409,22 @@
 
   
 
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://wyf0912.github.io/2018/03/13/计算机网络学习笔记/",
+  owner: 'wyf0912',
+  repo: 'wyf0912.github.io',
+  oauth: {
+    client_id: '97a4d5ea8203861ad0e8',
+    client_secret: '522685d2eb11746b934470aa9270ccd24dccb04c',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -521,7 +577,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">计算机专业大二学生，想通过这个博客记录本菜鸡的成长史。</div>
   	  	
     	</section>
     
