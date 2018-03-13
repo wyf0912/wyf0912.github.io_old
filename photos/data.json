@@ -1,1 +1,1 @@
-{"list":[{"arr":{"link":["2018-03-13_test.jpg"],"year":2018,"month":3,"text":["test"],"type":["image"]},"date":"2018-03"},{"arr":{"link":["2016-08-02_Shanghai.jpg"],"year":2016,"month":8,"text":["Shanghai"],"type":["image"]},"date":"2016-08"}]}
+{"list":[{"arr":{"month":3,"type":["image","image"],"link":["2018-03-13_test.jpg","2018-03-13_当年国赛瑞萨板子.jpg"],"year":2018,"text":["test","当年国赛瑞萨板子"]},"date":"2018-03"},{"arr":{"month":8,"type":["image"],"link":["2016-08-02_Shanghai.jpg"],"year":2016,"text":["Shanghai"]},"date":"2016-08"}]}
