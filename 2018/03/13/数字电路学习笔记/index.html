@@ -9,17 +9,20 @@
   <title>数字电路学习笔记 | WangYufei的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="数制编码  8421码：用4位2进制码表示一位十进制字符，位权依次8、4、2、1，所以不允许出现1010-1111。例如 258_{10} = (0010 0101 1000)_{8421码}     2421码：位权分别为2421。2421码不具备单值性。所以2421码不允许出现0101-1010的6种状态。 余3码 由8421码加上0011形成的一中无权码。不允许出现 0000、0001、00">
-<meta name="keywords" content="数字电路，学习笔记">
+<meta name="keywords" content="数字电路,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数字电路学习笔记">
 <meta property="og:url" content="http://wyf0912.github.io/2018/03/13/数字电路学习笔记/index.html">
 <meta property="og:site_name" content="WangYufei的博客">
 <meta property="og:description" content="数制编码  8421码：用4位2进制码表示一位十进制字符，位权依次8、4、2、1，所以不允许出现1010-1111。例如 258_{10} = (0010 0101 1000)_{8421码}     2421码：位权分别为2421。2421码不具备单值性。所以2421码不允许出现0101-1010的6种状态。 余3码 由8421码加上0011形成的一中无权码。不允许出现 0000、0001、00">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-13T07:34:55.093Z">
+<meta property="og:image" content="https://i.loli.net/2018/03/13/5aa7848fa7e1a.png">
+<meta property="og:image" content="https://i.loli.net/2018/03/13/5aa7848fc49d2.png">
+<meta property="og:updated_time" content="2018-03-13T07:58:45.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数字电路学习笔记">
 <meta name="twitter:description" content="数制编码  8421码：用4位2进制码表示一位十进制字符，位权依次8、4、2、1，所以不允许出现1010-1111。例如 258_{10} = (0010 0101 1000)_{8421码}     2421码：位权分别为2421。2421码不具备单值性。所以2421码不允许出现0101-1010的6种状态。 余3码 由8421码加上0011形成的一中无权码。不允许出现 0000、0001、00">
+<meta name="twitter:image" content="https://i.loli.net/2018/03/13/5aa7848fa7e1a.png">
   
     <link rel="alternative" href="/atom.xml" title="WangYufei的博客" type="application/atom+xml">
   
@@ -241,7 +244,7 @@
 <blockquote>
 <p>例如四位二进制从7-&gt;8,0111-&gt;1000。而格雷码只需一位发生变化。由于电子器件变化速度不一致，可能产生错误代码。可见，格雷码从编码上提高了可靠性</p>
 <blockquote>
-<p><strong>格雷码编码公式</strong><br>$G_i=B_{i+1} \lxor B_i$<br>$G_{n-1}=B_{n-1}$<br><strong>格雷码到二进制码</strong><br>待补充</p>
+<p><strong>二进制码到格雷码</strong><br>二进制码转换成二进制格雷码，其法则是保留二进制码的最高位作为格雷码的最高位，而次高位格雷码为二进制码的高位与次高位相异或，而格雷码其余各位与次高位的求法相类似。<br>$G_i=B_{i+1} \oplus B_i$<br>$G_{n-1}=B_{n-1}$<br><img src="https://i.loli.net/2018/03/13/5aa7848fa7e1a.png" alt=""><br><strong>格雷码到二进制码</strong><br>二进制格雷码转换成二进制码,其法则是保留格雷码的最高位作为自然二进制码的最高位，而次高位自然二进制码为高位自然二进制码与次高位格雷码相异或，而自然二进制码的其余各位与次高位自然二进制码的求法相类似。<br><img src="https://i.loli.net/2018/03/13/5aa7848fc49d2.png" alt=""></p>
 </blockquote>
 </blockquote>
 <blockquote>
@@ -284,7 +287,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数字电路，学习笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数字电路</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
         		</li>
       		
 		</ul>
@@ -490,15 +497,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">cv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数字电路，学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color5">数字电路</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,11 +517,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cv</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>
