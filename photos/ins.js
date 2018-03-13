@@ -116,8 +116,8 @@
         var data = res.list[j].arr;
         var liTmpl = "";
         for (var i = 0, len = data.link.length; i < len; i++) {
-          var minSrc = 'https://github.com/wyf0912/Blog/tree/master/min_photos/' + data.link[i];
-          var src = 'https://github.com/wyf0912/Blog/tree/master/photos/' + data.link[i];
+          var minSrc = 'http://blog-img-1253710694.coscd.myqcloud.com/min-img/' + data.link[i];
+          var src = 'http://blog-img-1253710694.coscd.myqcloud.com/img/' + data.link[i];
           var type = data.type[i];
           var target = src + (type === 'video' ? '.mp4' : '.jpg');
           src += '';
