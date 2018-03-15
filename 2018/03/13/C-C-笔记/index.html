@@ -16,10 +16,12 @@
 <meta property="og:site_name" content="WangYufei的博客">
 <meta property="og:description" content="之前在原来学院的时候C/C++没仔细学，转到计科以后准备重新刷一波分，希望不要越刷越低，orz sizeof是一个运算符,返回字节数123double a=0.0;cout&amp;lt;&amp;lt;sizeof(double)&amp;lt;&amp;lt;endl;cout&amp;lt;&amp;lt;sizeof(a)&amp;lt;&amp;lt;endl; 类型转化，无符号转换成有符号1234unsigned short int a=65535">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-13T02:28:21.766Z">
+<meta property="og:image" content="http://wyf0912.github.io/C-C-笔记/63d9f2d3572c11df57c9a205612762d0f703c2f8.jpg">
+<meta property="og:updated_time" content="2018-03-14T02:06:02.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C&#x2F;C++笔记">
 <meta name="twitter:description" content="之前在原来学院的时候C/C++没仔细学，转到计科以后准备重新刷一波分，希望不要越刷越低，orz sizeof是一个运算符,返回字节数123double a=0.0;cout&amp;lt;&amp;lt;sizeof(double)&amp;lt;&amp;lt;endl;cout&amp;lt;&amp;lt;sizeof(a)&amp;lt;&amp;lt;endl; 类型转化，无符号转换成有符号1234unsigned short int a=65535">
+<meta name="twitter:image" content="http://wyf0912.github.io/C-C-笔记/63d9f2d3572c11df57c9a205612762d0f703c2f8.jpg">
   
     <link rel="alternative" href="/atom.xml" title="WangYufei的博客" type="application/atom+xml">
   
@@ -171,6 +173,8 @@
         <p>之前在原来学院的时候C/C++没仔细学，转到计科以后准备重新刷一波分，希望不要越刷越低，orz</p>
 <p>sizeof是一个运算符,返回字节数<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> a=<span class="number">0.0</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="keyword">sizeof</span>(<span class="keyword">double</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="keyword">sizeof</span>(a)&lt;&lt;<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure></p>
 <p>类型转化，无符号转换成有符号<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">short</span> <span class="keyword">int</span> a=<span class="number">65535</span>;</span><br><span class="line"><span class="keyword">short</span> <span class="keyword">int</span> b=a;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//65535</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;b&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//-1</span></span><br></pre></td></tr></table></figure></p>
+<p>优先级<br><img src="/C-C-笔记/63d9f2d3572c11df57c9a205612762d0f703c2f8.jpg" alt=""><br>，的优先级最低。易错点：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">1</span>,b=<span class="number">2</span>,c=<span class="number">3</span>,d;</span><br><span class="line">d = ++a,++b,c++;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;d&lt;&lt;<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure></p>
+<p>正确答案输出2，因为 <strong>=</strong> 的优先级高于 <strong>，</strong> 运算符。 <strong>，</strong> 运算符在for循环的循环条件中有出现。</p>
 
       
 
@@ -445,6 +449,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
             
             <div class="clearfix"></div>

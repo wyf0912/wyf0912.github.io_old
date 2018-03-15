@@ -18,7 +18,8 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2018/03/13/5aa7848fa7e1a.png">
 <meta property="og:image" content="https://i.loli.net/2018/03/13/5aa7848fc49d2.png">
-<meta property="og:updated_time" content="2018-03-13T08:34:31.081Z">
+<meta property="og:image" content="http://wyf0912.github.io/20180315083124851/74.jpg">
+<meta property="og:updated_time" content="2018-03-14T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数字电路学习笔记">
 <meta name="twitter:description" content="数制编码  8421码：用4位2进制码表示一位十进制字符，位权依次8、4、2、1，所以不允许出现1010-1111。例如 258_{10} = (0010 0101 1000)_{8421码}     2421码：位权分别为2421。2421码不具备单值性。所以2421码不允许出现0101-1010的6种状态。 余3码 由8421码加上0011形成的一中无权码。不允许出现 0000、0001、00">
@@ -259,6 +260,47 @@
 <li>奇偶校验码<br>在每组数据信息上附加一位奇偶校验位，若采用奇校验方式，则使包括校验码在内的数据还有奇数个1；偶校验方式，则使包括检验码在内的数据还有偶数个1。<br>例：字母‘E’的ASCII为1000101，若在最高位增加一位奇偶校验，其奇校验编码则为01000101，偶校验为11000101。<br>[x]_反=11001 求[x/2]补码 [2x]原码</li>
 </ul>
 </blockquote>
+<h1 id="数字电路中的电气特性"><a href="#数字电路中的电气特性" class="headerlink" title="数字电路中的电气特性"></a>数字电路中的电气特性</h1><blockquote>
+<ul>
+<li>在模拟世界中如何表征数字系统？</li>
+<li>如何将物理上的实际值映射为逻辑的0和1？</li>
+<li>什么时候考虑器件的逻辑功能？什么时候考虑器件的模拟特性？</li>
+</ul>
+</blockquote>
+<h2 id="逻辑信号和门电路"><a href="#逻辑信号和门电路" class="headerlink" title="逻辑信号和门电路"></a>逻辑信号和门电路</h2><blockquote>
+<ul>
+<li>正逻辑：高电平为1 低电平为0（课本采用）</li>
+<li>负逻辑：高电平0 低电平1</li>
+</ul>
+</blockquote>
+<h2 id="CMOS逻辑"><a href="#CMOS逻辑" class="headerlink" title="CMOS逻辑"></a>CMOS逻辑</h2><blockquote>
+<ul>
+<li>0-1.5V 逻辑0</li>
+<li>3.5V-5.0V 逻辑1</li>
+</ul>
+</blockquote>
+<h3 id="MOS晶体管"><a href="#MOS晶体管" class="headerlink" title="MOS晶体管"></a>MOS晶体管</h3><p>分为：N沟道 和 P沟道</p>
+<p><img src="/20180315083124851/74.jpg" alt=""></p>
+<p>G:栅极（gate) D:漏极（drain) S:源极（source)<br>N沟道和P沟道电流方向相反。N 漏极到源极。 P源极到漏极<br>V_{gs}&gt;=0工作</p>
+<blockquote>
+<p>N沟道：</p>
+<ul>
+<li>V_{gs}=0时<br>R_{ds}很高（&gt;10^6），截止状态</li>
+<li>V_{gs}越大，R_{ds}越小</li>
+</ul>
+</blockquote>
+<p>栅极阻抗非常高。GS,GD之间几乎没有电流（漏电流，μA）<br>GS,GD之间有电容耦合，信号转化时，电容充放电，功耗较大。</p>
+<h4 id="N-P沟道晶体管的区别"><a href="#N-P沟道晶体管的区别" class="headerlink" title="N,P沟道晶体管的区别"></a>N,P沟道晶体管的区别</h4><ul>
+<li>驱动不一样</li>
+<li>N沟道V_{gs}是正的，P沟道是负的</li>
+</ul>
+<h4 id="扇入（fan-in"><a href="#扇入（fan-in" class="headerlink" title="扇入（fan-in)"></a>扇入（fan-in)</h4><blockquote>
+<ul>
+<li>门电路所具有的输入端的数目</li>
+<li>导通电阻的可加性限制了CMOS的数量</li>
+<li>通过较少门电路的级联增加输入端的数目 </li>
+</ul>
+</blockquote>
 
       
 
@@ -377,6 +419,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/03/14/数据库系统及应用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          数据库系统及应用
+        
+      </div>
+    </a>
   
   
     <a href="/2018/03/13/计算机网络学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
@@ -539,6 +590,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
             
             <div class="clearfix"></div>
