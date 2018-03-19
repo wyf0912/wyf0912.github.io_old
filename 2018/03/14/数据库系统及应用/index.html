@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://wyf0912.github.io">
   <title>数据库系统及应用 | WangYufei的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数据库系统概论数据库基本概念：  数据库 数据库管理系统（DBMS) ：一个能够让用户定义，创建和维护数据库以及控制对数据库访问的软件系统。DDL(数据定义),DML（数据操作语言）,DCL（数据控制语言），DQL(数据查询语言）等。  数据库系统：是指在计算机系统中引入数据库后的系统构成。注：在不一起混淆的情况下常常把数据库系统简称为数据库。    组成：待补充    关系：   联系通过">
+  <meta name="description" content="数据库系统概论数据库基本概念：  数据库 数据库管理系统（DBMS) ：一个能够让用户定义，创建和维护数据库以及控制对数据库访问的软件系统。DDL(数据定义),DML（数据操作语言）,DCL（数据控制语言），DQL(数据查询语言）等。  数据库系统：是指在计算机系统中引入数据库后的系统构成。注：在不一起混淆的情况下常常把数据库系统简称为数据库。    组成：待补充  体系结构：  模式：  数据库">
 <meta name="keywords" content="学习笔记,数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库系统及应用">
 <meta property="og:url" content="http://wyf0912.github.io/2018/03/14/数据库系统及应用/index.html">
 <meta property="og:site_name" content="WangYufei的博客">
-<meta property="og:description" content="数据库系统概论数据库基本概念：  数据库 数据库管理系统（DBMS) ：一个能够让用户定义，创建和维护数据库以及控制对数据库访问的软件系统。DDL(数据定义),DML（数据操作语言）,DCL（数据控制语言），DQL(数据查询语言）等。  数据库系统：是指在计算机系统中引入数据库后的系统构成。注：在不一起混淆的情况下常常把数据库系统简称为数据库。    组成：待补充    关系：   联系通过">
+<meta property="og:description" content="数据库系统概论数据库基本概念：  数据库 数据库管理系统（DBMS) ：一个能够让用户定义，创建和维护数据库以及控制对数据库访问的软件系统。DDL(数据定义),DML（数据操作语言）,DCL（数据控制语言），DQL(数据查询语言）等。  数据库系统：是指在计算机系统中引入数据库后的系统构成。注：在不一起混淆的情况下常常把数据库系统简称为数据库。    组成：待补充  体系结构：  模式：  数据库">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-14T01:46:45.521Z">
+<meta property="og:updated_time" content="2018-03-15T03:43:20.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库系统及应用">
-<meta name="twitter:description" content="数据库系统概论数据库基本概念：  数据库 数据库管理系统（DBMS) ：一个能够让用户定义，创建和维护数据库以及控制对数据库访问的软件系统。DDL(数据定义),DML（数据操作语言）,DCL（数据控制语言），DQL(数据查询语言）等。  数据库系统：是指在计算机系统中引入数据库后的系统构成。注：在不一起混淆的情况下常常把数据库系统简称为数据库。    组成：待补充    关系：   联系通过">
+<meta name="twitter:description" content="数据库系统概论数据库基本概念：  数据库 数据库管理系统（DBMS) ：一个能够让用户定义，创建和维护数据库以及控制对数据库访问的软件系统。DDL(数据定义),DML（数据操作语言）,DCL（数据控制语言），DQL(数据查询语言）等。  数据库系统：是指在计算机系统中引入数据库后的系统构成。注：在不一起混淆的情况下常常把数据库系统简称为数据库。    组成：待补充  体系结构：  模式：  数据库">
   
     <link rel="alternative" href="/atom.xml" title="WangYufei的博客" type="application/atom+xml">
   
@@ -179,14 +179,41 @@
 <li><ul>
 <li>组成：待补充</li>
 </ul>
-</li>
-</ul>
-<p>关系：</p>
+<p><strong>体系结构：</strong></p>
 <blockquote>
+<p>模式：</p>
 <ul>
-<li>联系通过</li>
+<li>数据库逻辑结构和特征的描述</li>
+<li>是型的描述<blockquote>
+<p>记录型: (学号，姓名，性别，…）</p>
+</blockquote>
+</li>
+<li>反映的是数据结构及其联系</li>
+<li>模式是相对稳定的<br>三层模式体系结构:</li>
+<li>内模式（Internal Schema)</li>
+<li>概念模式（Conceptual Schema)</li>
+<li>外模式（External Schema)</li>
 </ul>
 </blockquote>
+<p><strong>NoSQL</strong> </p>
+<h1 id="关系数据模型"><a href="#关系数据模型" class="headerlink" title="关系数据模型"></a>关系数据模型</h1><h2 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h2><p>数据库中用<strong>数据模型</strong>这个工具来<strong>抽象、表示、处理</strong>现实世界中</p>
+<blockquote>
+<p>数据模型中的：</p>
+<ul>
+<li>概念数据模型</li>
+<li>逻辑数据模型</li>
+<li>物理数据模型</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>数据模型的三要素</p>
+<ul>
+<li>数据结构</li>
+<li>数据约束条件</li>
+</ul>
+</blockquote>
+<h2 id="关系数据模型-1"><a href="#关系数据模型-1" class="headerlink" title="关系数据模型"></a>关系数据模型</h2><h2 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h2><h2 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h2></li>
+</ul>
 
       
 

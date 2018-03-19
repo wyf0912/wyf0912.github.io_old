@@ -8,18 +8,20 @@
   <link rel="dns-prefetch" href="http://wyf0912.github.io">
   <title>计算机网络学习笔记 | WangYufei的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="成绩组成：期末70%，实验10%，作业10%，平时10% 第一章：内容大纲什么是因特网计算机网络是两台以上具有独立操作系统的计算机通过某些介质连接成的相互共享软硬件资源的结合体 具体构成描述端系统通过通信链路和分组交换机连接在一起。链路的传输速率是以bps度量的。当一台端系统向另一台端系统发送数据时，发送端系统将数据分段，并为每段加上首部字节，由此形成的信息包被称为分组（packet） 。两种最著">
+  <meta name="description" content="成绩组成：期末70%，实验10%，作业10%，平时10% 第一章：内容大纲什么是因特网计算机网络是两台以上具有独立操作系统的计算机通过某些介质连接成的相互共享软硬件资源的结合体 具体构成描述网络边缘 与因特网相连的计算机等设备通常被称为端系统，包括桌面计算机、服务器、移动计算机。端系统也被称为主机。主机有时又被分为两类：客户机和服务器。在本书中(client program)是运行在一个端系统上的">
 <meta name="keywords" content="学习笔记,计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络学习笔记">
 <meta property="og:url" content="http://wyf0912.github.io/2018/03/13/计算机网络学习笔记/index.html">
 <meta property="og:site_name" content="WangYufei的博客">
-<meta property="og:description" content="成绩组成：期末70%，实验10%，作业10%，平时10% 第一章：内容大纲什么是因特网计算机网络是两台以上具有独立操作系统的计算机通过某些介质连接成的相互共享软硬件资源的结合体 具体构成描述端系统通过通信链路和分组交换机连接在一起。链路的传输速率是以bps度量的。当一台端系统向另一台端系统发送数据时，发送端系统将数据分段，并为每段加上首部字节，由此形成的信息包被称为分组（packet） 。两种最著">
+<meta property="og:description" content="成绩组成：期末70%，实验10%，作业10%，平时10% 第一章：内容大纲什么是因特网计算机网络是两台以上具有独立操作系统的计算机通过某些介质连接成的相互共享软硬件资源的结合体 具体构成描述网络边缘 与因特网相连的计算机等设备通常被称为端系统，包括桌面计算机、服务器、移动计算机。端系统也被称为主机。主机有时又被分为两类：客户机和服务器。在本书中(client program)是运行在一个端系统上的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-13T05:56:28.375Z">
+<meta property="og:image" content="http://wyf0912.github.io/20180319165048387/20180319045130563.png">
+<meta property="og:updated_time" content="2018-03-19T12:54:02.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络学习笔记">
-<meta name="twitter:description" content="成绩组成：期末70%，实验10%，作业10%，平时10% 第一章：内容大纲什么是因特网计算机网络是两台以上具有独立操作系统的计算机通过某些介质连接成的相互共享软硬件资源的结合体 具体构成描述端系统通过通信链路和分组交换机连接在一起。链路的传输速率是以bps度量的。当一台端系统向另一台端系统发送数据时，发送端系统将数据分段，并为每段加上首部字节，由此形成的信息包被称为分组（packet） 。两种最著">
+<meta name="twitter:description" content="成绩组成：期末70%，实验10%，作业10%，平时10% 第一章：内容大纲什么是因特网计算机网络是两台以上具有独立操作系统的计算机通过某些介质连接成的相互共享软硬件资源的结合体 具体构成描述网络边缘 与因特网相连的计算机等设备通常被称为端系统，包括桌面计算机、服务器、移动计算机。端系统也被称为主机。主机有时又被分为两类：客户机和服务器。在本书中(client program)是运行在一个端系统上的">
+<meta name="twitter:image" content="http://wyf0912.github.io/20180319165048387/20180319045130563.png">
   
     <link rel="alternative" href="/atom.xml" title="WangYufei的博客" type="application/atom+xml">
   
@@ -165,44 +167,37 @@
     
     <!-- 目录内容 -->
 
-    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-          <span class="btn-bg"></span>
-          <span class="btn-text">文章导航</span>
-          </p>
-	<div id="toc-article" class="toc-article">
-	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章：内容大纲"><span class="toc-number">1.</span> <span class="toc-text">第一章：内容大纲</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是因特网"><span class="toc-number">1.1.</span> <span class="toc-text">什么是因特网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#具体构成描述"><span class="toc-number">1.1.1.</span> <span class="toc-text">具体构成描述</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络边缘"><span class="toc-number">1.2.</span> <span class="toc-text">网络边缘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络核心"><span class="toc-number">1.3.</span> <span class="toc-text">网络核心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#电路交换"><span class="toc-number">1.3.1.</span> <span class="toc-text">电路交换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电路交换网络中的多路复用"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">电路交换网络中的多路复用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分组交换"><span class="toc-number">1.3.2.</span> <span class="toc-text">分组交换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分组交换网中的时延、丢包和吞吐量"><span class="toc-number">1.4.</span> <span class="toc-text">分组交换网中的时延、丢包和吞吐量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分层的体系结构"><span class="toc-number">1.4.1.</span> <span class="toc-text">分层的体系结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP的五层模型"><span class="toc-number">1.4.2.</span> <span class="toc-text">TCP/IP的五层模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ISO-OSI模型"><span class="toc-number">1.4.3.</span> <span class="toc-text">ISO/OSI模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络安全"><span class="toc-number">1.5.</span> <span class="toc-text">网络安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络和Internet发展史"><span class="toc-number">1.6.</span> <span class="toc-text">计算机网络和Internet发展史</span></a></li></ol></li></ol>
-         </div>
-   <script type="text/javascript">
-	function showToc(){
-        var toc_article = document.getElementById("toc-article");
-        var show_toc_btn = document.getElementById("show-toc-btn");
-        toc_article.setAttribute("style","display:block");
-        show_toc_btn.setAttribute("style","display:none");
-        };
-    function showBtn(){
-        var toc_article = document.getElementById("toc-article");
-        var show_toc_btn = document.getElementById("show-toc-btn");
-        toc_article.setAttribute("style","display:none");
-        show_toc_btn.setAttribute("style","display:block");
-        };
-   </script>
-      
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
         <p>成绩组成：期末70%，实验10%，作业10%，平时10%</p>
 <h1 id="第一章：内容大纲"><a href="#第一章：内容大纲" class="headerlink" title="第一章：内容大纲"></a>第一章：内容大纲</h1><h2 id="什么是因特网"><a href="#什么是因特网" class="headerlink" title="什么是因特网"></a>什么是因特网</h2><p>计算机网络是两台以上具有<strong>独立操作系统</strong>的计算机通过某些介质连接成的相互共享软硬件资源的结合体</p>
-<h3 id="具体构成描述"><a href="#具体构成描述" class="headerlink" title="具体构成描述"></a>具体构成描述</h3><p><strong>端系统</strong>通过<strong>通信链路</strong>和<strong>分组交换机</strong>连接在一起。链路的传输速率是以<strong>bps</strong>度量的。当一台端系统向另一台端系统发送数据时，发送端系统将数据分段，并为每段加上首部字节，由此形成的信息包被称为<strong>分组（packet）</strong> 。两种最著名的分组交换机是路由器和链路层交换机。</p>
-<h2 id="网络边缘"><a href="#网络边缘" class="headerlink" title="网络边缘"></a>网络边缘</h2><h2 id="网络核心"><a href="#网络核心" class="headerlink" title="网络核心"></a>网络核心</h2><h3 id="电路交换"><a href="#电路交换" class="headerlink" title="电路交换"></a>电路交换</h3><h4 id="电路交换网络中的多路复用"><a href="#电路交换网络中的多路复用" class="headerlink" title="电路交换网络中的多路复用"></a>电路交换网络中的多路复用</h4><blockquote>
-<p>频分多路复用（Frequency-Division Multiplexing, FDM）<br>时分多路复用（Time-Division Multiplexing, TDM)</p>
+<h3 id="具体构成描述"><a href="#具体构成描述" class="headerlink" title="具体构成描述"></a>具体构成描述</h3><h2 id="网络边缘"><a href="#网络边缘" class="headerlink" title="网络边缘"></a>网络边缘</h2><ul>
+<li>与因特网相连的计算机等设备通常被称为<strong>端系统</strong>，包括桌面计算机、服务器、移动计算机。<strong>端系统也被称为主机</strong>。主机有时又被分为两类：客户机和服务器。在本书中(client program)是运行在一个端系统上的服务。</li>
+<li>接入网即将端系统连接到其边缘路由器的物理链路。边缘路由器是端系统到其他远程端系统的路径上的第一台路由器。大致可分为以下三种类型： 住宅接入、公司接入、无线接入  </li>
+</ul>
+<h2 id="网络核心"><a href="#网络核心" class="headerlink" title="网络核心"></a>网络核心</h2><p>通过网络链路和交换机移动数据有两种基本方法：<strong>电路交换、分组交换</strong></p>
+<h3 id="电路交换"><a href="#电路交换" class="headerlink" title="电路交换"></a>电路交换</h3><p><img src="/20180319165048387/20180319045130563.png" alt="电路交换示意图"><br>电路交换网络必须在发送方和接收方之间建立一个真正意义上的连接。</p>
+<h4 id="电路交换网络中的多路复用"><a href="#电路交换网络中的多路复用" class="headerlink" title="电路交换网络中的多路复用"></a>电路交换网络中的多路复用</h4><blockquote>
+<p>频分多路复用（Frequency-Division Multiplexing, FDM）<br>时分多路复用（Time-Division Multiplexing, TDM)<br>电路交换效率较低，因为在静默期专用电路空闲。</p>
 </blockquote>
-<h3 id="分组交换"><a href="#分组交换" class="headerlink" title="分组交换"></a>分组交换</h3><h2 id="分组交换网中的时延、丢包和吞吐量"><a href="#分组交换网中的时延、丢包和吞吐量" class="headerlink" title="分组交换网中的时延、丢包和吞吐量"></a>分组交换网中的时延、丢包和吞吐量</h2><ul>
+<h3 id="分组交换"><a href="#分组交换" class="headerlink" title="分组交换"></a>分组交换</h3><p>各种应用程序在完成其任务时要交换<strong>报文(message)</strong>&gt;报文能包含协议设计中的任何东西。报文可以执行一种控制功能（例如握手例子中的“你好”报文），或者能够包含数据的（例如邮件数据，图像或音频文件）。在现代的计算机网络中，原主机将报文划分为较小的数据块，并称之为 <strong>分组(packet)</strong> 。 在源和目的地之间，这些分组通过通信链路和<strong>分组交换机(packet switch)</strong>(交换机主要分两类：路由器和链路层交换机）。分组以该链路的最大传输速率在通信链路上传输。<br>多数分组交换机在链路的输入端使用<strong>存储转发传输</strong>，存储转发传输机制是指在交换机能够开始向输出链路传输该分组的第一个比特之前，必须接受到整个分组。<br>考虑一台主机向另一台主机传输L比特分组需要多长时间。假定在这两台主机之间有Q段链路，每段链路的速率为R bps。假定这是网络中的唯一分组，每次都有L/R s的转发延时，因此总延时为QL/R。<br>分组交换机具有一个输出缓存。分组还要承受排队延时。当分组满了以后，将出现分组<strong>丢失或丢包</strong>。</p>
+<h2 id="分组是怎样通过分组交换网形成其通路的"><a href="#分组是怎样通过分组交换网形成其通路的" class="headerlink" title="分组是怎样通过分组交换网形成其通路的"></a>分组是怎样通过分组交换网形成其通路的</h2><p>在<strong>因特网</strong>中，每个通过该网络传输的的分组在它的首部包含了其目的地址。</p>
+<h2 id="ISP-Internet-Service-Provider-和因特网主干"><a href="#ISP-Internet-Service-Provider-和因特网主干" class="headerlink" title="ISP(Internet Service Provider)和因特网主干"></a>ISP(Internet Service Provider)和因特网主干</h2><p>端系统是通过接入网与因特网相连，因特网是网络的网络。<br>在公共的因特网中，坐落在因特网边缘的接入网通过分层的ISP层次结构与因特网的其他部分相连。</p>
+<blockquote>
+<p>ISP层次结构</p>
+<ul>
+<li>第一层：因特网主干网络</li>
+<li>第二层: 通常具有区域性或国家性覆盖规模</li>
+</ul>
+</blockquote>
+<h2 id="分组交换网中的时延、丢包和吞吐量"><a href="#分组交换网中的时延、丢包和吞吐量" class="headerlink" title="分组交换网中的时延、丢包和吞吐量"></a>分组交换网中的时延、丢包和吞吐量</h2><ul>
 <li>Traceroute程序：提供从源节点到到目的节点路径上所有路由器的延迟测量</li>
 <li>吞吐量：在发送方和接收方之间单位时间内成功地传送数据的数量</li>
 <li>tcp链接平分带宽。假设10个connectors。 min(R_c,R_s,R/10)</li>
-<li>四种延迟：处理延时 排队延时 传输延时 传播延时<h3 id="分层的体系结构"><a href="#分层的体系结构" class="headerlink" title="分层的体系结构"></a>分层的体系结构</h3><h3 id="TCP-IP的五层模型"><a href="#TCP-IP的五层模型" class="headerlink" title="TCP/IP的五层模型"></a>TCP/IP的五层模型</h3></li>
+<li>四种延迟：节点处理时延 排队时延 传输时延 传播实验</li>
+</ul>
+<h3 id="分层的体系结构"><a href="#分层的体系结构" class="headerlink" title="分层的体系结构"></a>分层的体系结构</h3><h3 id="TCP-IP的五层模型"><a href="#TCP-IP的五层模型" class="headerlink" title="TCP/IP的五层模型"></a>TCP/IP的五层模型</h3><ul>
 <li>应用层application<blockquote>
 <p>支持网络应用 报文传送 FTP,SMTP,STTP</p>
 </blockquote>
@@ -397,19 +392,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章：内容大纲"><span class="toc-number">1.</span> <span class="toc-text">第一章：内容大纲</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是因特网"><span class="toc-number">1.1.</span> <span class="toc-text">什么是因特网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#具体构成描述"><span class="toc-number">1.1.1.</span> <span class="toc-text">具体构成描述</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络边缘"><span class="toc-number">1.2.</span> <span class="toc-text">网络边缘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络核心"><span class="toc-number">1.3.</span> <span class="toc-text">网络核心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#电路交换"><span class="toc-number">1.3.1.</span> <span class="toc-text">电路交换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电路交换网络中的多路复用"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">电路交换网络中的多路复用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分组交换"><span class="toc-number">1.3.2.</span> <span class="toc-text">分组交换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分组交换网中的时延、丢包和吞吐量"><span class="toc-number">1.4.</span> <span class="toc-text">分组交换网中的时延、丢包和吞吐量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分层的体系结构"><span class="toc-number">1.4.1.</span> <span class="toc-text">分层的体系结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP的五层模型"><span class="toc-number">1.4.2.</span> <span class="toc-text">TCP/IP的五层模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ISO-OSI模型"><span class="toc-number">1.4.3.</span> <span class="toc-text">ISO/OSI模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络安全"><span class="toc-number">1.5.</span> <span class="toc-text">网络安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络和Internet发展史"><span class="toc-number">1.6.</span> <span class="toc-text">计算机网络和Internet发展史</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>
