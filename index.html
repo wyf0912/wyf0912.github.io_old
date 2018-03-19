@@ -142,6 +142,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Tfrecord数据集的制作和使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/19/Tfrecord数据集的制作和使用/">Tfrecord数据集的制作和使用</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/19/Tfrecord数据集的制作和使用/" class="archive-article-date">
+  	<time datetime="2018-03-19T13:43:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-19</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Why-Tfrecord"><a href="#Why-Tfrecord" class="headerlink" title="Why Tfrecord"></a>Why Tfrecord</h1><p>之前一直在自己电脑上训练，且数据量较小，所以一直没有格式化数据。而且网上资料比较少，所以打算从官方文档读起。官方文档地址在<a href="https://www.tensorflow.org/api_guides/python/python_io" target="_blank" rel="noopener">https://www.tensorflow.org/api_guides/python/python_io</a></p>
+<h1 id="官方文档细节"><a href="#官方文档细节" class="headerlink" title="官方文档细节"></a>官方文档细节</h1><p>一个tfrecords文件包含一个字符串序列与crc32c校验的哈希值。每个记录都有如下格式：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">uint64 length</span><br><span class="line">uint32 masked_crc32_of_length</span><br><span class="line">byte   data[length]</span><br><span class="line">uint32 masked_crc32_of_data</span><br></pre></td></tr></table></figure></p>
+<h2 id="tf-python-io-TFRecordWriter"><a href="#tf-python-io-TFRecordWriter" class="headerlink" title="tf.python_io.TFRecordWriter"></a>tf.python_io.TFRecordWriter</h2><p>该类实现了<strong>enter</strong>和<strong>exit</strong>，所以可以使用with代码块的方式。<br>初始化的参数：</p>
+<ul>
+<li>path: The path to the TFRecords file.</li>
+<li>options: (可选) A TFRecordOptions object<br>包含的方法：<br><strong>enter</strong>,<strong>exit</strong>,close,flush(刷新文件)，write<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">write(record)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Write a string record to the file.<br>Args:</p>
+<ul>
+<li>record: str</li>
+</ul>
+<h2 id="tf-python-io-tf-record-iterator"><a href="#tf-python-io-tf-record-iterator" class="headerlink" title="tf.python_io.tf_record_iterator"></a>tf.python_io.tf_record_iterator</h2><p>初始化的参数：</p>
+<ul>
+<li>path: The path to the TFRecords file.</li>
+<li>options: (可选) A TFRecordOptions object</li>
+<li>Yields:Strings.</li>
+</ul>
+<p>带有yield 的函数在 Python 中被称之为 generator（生成器）</p>
+<h2 id="tf-TFRecordReader"><a href="#tf-TFRecordReader" class="headerlink" title="tf.TFRecordReader"></a>tf.TFRecordReader</h2><p>官网链接：<a href="https://www.tensorflow.org/versions/r1.4/api_docs/python/tf/TFRecordReader" target="_blank" rel="noopener">https://www.tensorflow.org/versions/r1.4/api_docs/python/tf/TFRecordReader</a></p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><h2 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
+<h2 id="构建writer，用于写入数据"><a href="#构建writer，用于写入数据" class="headerlink" title="构建writer，用于写入数据"></a>构建writer，用于写入数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">writer = tf.python_io.TFRecordWriter(<span class="string">'test.tfrecord'</span>)</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/19/Tfrecord数据集的制作和使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="page-数据库系统及应用" class="article article-type-page  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -974,18 +1061,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数字电路</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
@@ -998,11 +1073,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color5">数字电路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>
