@@ -764,7 +764,96 @@
 <li>具有虚假原地址的分组注入因特网</li>
 </ul>
 </blockquote>
-<h2 id="计算机网络和Internet发展史"><a href="#计算机网络和Internet发展史" class="headerlink" title="计算机网络和Internet发展史"></a>计算机网络和Internet发展史</h2>
+<h2 id="计算机网络和Internet发展史"><a href="#计算机网络和Internet发展史" class="headerlink" title="计算机网络和Internet发展史"></a>计算机网络和Internet发展史</h2><h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1><h2 id="客户机-服务器体系结构"><a href="#客户机-服务器体系结构" class="headerlink" title="客户机/服务器体系结构"></a>客户机/服务器体系结构</h2><blockquote>
+<p>服务器</p>
+<ul>
+<li>总是打开的主机</li>
+<li>具有恒定的众所周知的IP地址</li>
+<li>主机群集常被用于创建强大的虚拟服务器</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>客户机</p>
+<ul>
+<li>同服务器端通信</li>
+<li>可以间断的同服务器链接</li>
+<li>可以拥有动态的IP地址</li>
+<li>客户机相互之间不直接通信 </li>
+</ul>
+</blockquote>
+<h2 id="纯P2P体系结构"><a href="#纯P2P体系结构" class="headerlink" title="纯P2P体系结构"></a>纯P2P体系结构</h2><blockquote>
+<ul>
+<li>没有总是打开的服务器</li>
+<li>任意一对主机直接相互通信</li>
+<li>对等方向其他对等方提供服务，同时接收其他对等方的服务</li>
+<li><strong>优点：高扩展性</strong></li>
+<li><strong>缺点：难以管理</strong></li>
+</ul>
+</blockquote>
+<h2 id="客户机-服务器和P2P混合的体系结构"><a href="#客户机-服务器和P2P混合的体系结构" class="headerlink" title="客户机/服务器和P2P混合的体系结构"></a>客户机/服务器和P2P混合的体系结构</h2><h3 id="Napster"><a href="#Napster" class="headerlink" title="Napster"></a>Napster</h3><blockquote>
+<p>文件直接在对等方之间交换<br>文件搜索通过服务器</p>
+<ul>
+<li>中心服务器记录对等方内容</li>
+<li>对等方查询中心服务器来决定要求的文件位置</li>
+</ul>
+</blockquote>
+<h3 id="即时通信"><a href="#即时通信" class="headerlink" title="即时通信"></a>即时通信</h3><blockquote>
+<p>两个聊天用户之间是P2P<br>注册、查询通过服务器</p>
+<ul>
+<li>用户上线时要在中心服务器上进行注册</li>
+<li>用户与中心服务器联系以找出在线伙伴</li>
+</ul>
+</blockquote>
+<h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><p><strong>进程：运行在端系统中的程序。</strong></p>
+<blockquote>
+<ul>
+<li>同一主机上的两个 进程通过内部进程通信机制进行通信</li>
+<li>不同主机上的两个进程通信</li>
+</ul>
+</blockquote>
+<h3 id="套接字"><a href="#套接字" class="headerlink" title="套接字"></a>套接字</h3><blockquote>
+<ul>
+<li>进程通过它的套接字在网络上发送和接收报文</li>
+<li>套接字类比于门户<ul>
+<li>发送进程把报文推出门户</li>
+<li>发送进程假定门户到另外一侧之间有运输设施，该设施可以传送报文到接收进程</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="进程寻址"><a href="#进程寻址" class="headerlink" title="进程寻址"></a>进程寻址</h3><blockquote>
+<ul>
+<li>为了一个进程能接收报文，它需要一个标识</li>
+<li>主机唯一的32位IP地址不能标识进程</li>
+<li>主机上的进程标识包括IP地址和端口号</li>
+<li>常用应用程序的端口号：<ul>
+<li>Web服务：80</li>
+<li>邮件服务：25</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="应用层协议"><a href="#应用层协议" class="headerlink" title="应用层协议"></a>应用层协议</h3><blockquote>
+<ul>
+<li>交换的报文类型，如请求报文和应答报文</li>
+<li>报文类型的语法： 报文中的各个字段及其详细描述</li>
+<li>字段的语义，既包含在字段中的信息的含义</li>
+<li>进程何时、如何发送报文及对报文进行响应</li>
+<li><strong>公共领域的协议：</strong><ul>
+<li>由RFC文档定义</li>
+<li>可供大家使用</li>
+<li>例如：HTTP,SMTP</li>
+</ul>
+</li>
+<li><strong>专用协议</strong><ul>
+<li>例如： skype</li>
+</ul>
+</li>
+<li>常见应用的传输服务需求<br><img src="/20180320110921408/20180320111340236.png" alt=""></li>
+</ul>
+</blockquote>
+<h3 id="因特网运输协议提供的服务"><a href="#因特网运输协议提供的服务" class="headerlink" title="因特网运输协议提供的服务"></a>因特网运输协议提供的服务</h3><p><img src="/20180320110921408/20180320112133376.png" alt=""><br><img src="/20180320110921408/20180320112110956.png" alt=""></p>
+
       
 
       
