@@ -184,7 +184,40 @@
 <li>Yields:Strings.</li>
 </ul>
 <p>带有yield 的函数在 Python 中被称之为 generator（生成器）</p>
-<h2 id="tf-TFRecordReader"><a href="#tf-TFRecordReader" class="headerlink" title="tf.TFRecordReader"></a>tf.TFRecordReader</h2><p>官网链接：<a href="https://www.tensorflow.org/versions/r1.4/api_docs/python/tf/TFRecordReader" target="_blank" rel="noopener">https://www.tensorflow.org/versions/r1.4/api_docs/python/tf/TFRecordReader</a></p>
+<h2 id="tf-TFRecordReader"><a href="#tf-TFRecordReader" class="headerlink" title="tf.TFRecordReader"></a>tf.TFRecordReader</h2><p>官网链接：<a href="https://www.tensorflow.org/versions/r1.4/api_docs/python/tf/TFRecordReader" target="_blank" rel="noopener">https://www.tensorflow.org/versions/r1.4/api_docs/python/tf/TFRecordReader</a><br>tf.TFRecordReader继承自tf.ReaderBase<br>方法：</p>
+<ul>
+<li><strong>init</strong><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__init__(</span><br><span class="line">    name=<span class="keyword">None</span>,</span><br><span class="line">    options=<span class="keyword">None</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Create a TFRecordReader.</p>
+<blockquote>
+<p>Args:</p>
+<ul>
+<li>name: A name for the operation (optional).</li>
+<li>options: A TFRecordOptions object (optional).</li>
+<li>num_records_produced<br>num_records_produced(name=None)</li>
+</ul>
+</blockquote>
+<p>Returns the number of records this reader has produced.This is the same as the number of Read executions that have succeeded.</p>
+<blockquote>
+<p>Returns:</p>
+<ul>
+<li>An int64 Tensor.</li>
+</ul>
+</blockquote>
+<ul>
+<li>read<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">read(</span><br><span class="line">    queue,</span><br><span class="line">    name=<span class="keyword">None</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Returns the next record (key, value) pair produced by a reader.<br>返回一个由读取器生成的键值对</p>
+<p>Will dequeue a work unit from queue if necessary (e.g. when the Reader needs to start reading from a new file since it has finished with the previous file).</p>
+<p>如果需要可以将一个工作单元出列（例如已经完成了之前的文件需要开始读取新的文件）。</p>
+<blockquote>
+<p>Args:</p>
+<ul>
+<li></li>
+</ul>
+</blockquote>
 <h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><h2 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
 <h2 id="构建writer，用于写入数据"><a href="#构建writer，用于写入数据" class="headerlink" title="构建writer，用于写入数据"></a>构建writer，用于写入数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">writer = tf.python_io.TFRecordWriter(<span class="string">'test.tfrecord'</span>)</span><br></pre></td></tr></table></figure>
 
@@ -765,7 +798,7 @@
         <p>之前在原来学院的时候C/C++没仔细学，转到计科以后准备重新刷一波分，希望不要越刷越低，orz</p>
 <p>sizeof是一个运算符,返回字节数<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> a=<span class="number">0.0</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="keyword">sizeof</span>(<span class="keyword">double</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="keyword">sizeof</span>(a)&lt;&lt;<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure></p>
 <p>类型转化，无符号转换成有符号<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">short</span> <span class="keyword">int</span> a=<span class="number">65535</span>;</span><br><span class="line"><span class="keyword">short</span> <span class="keyword">int</span> b=a;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//65535</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;b&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//-1</span></span><br></pre></td></tr></table></figure></p>
-<p>优先级<br><img src="/C-C-笔记/63d9f2d3572c11df57c9a205612762d0f703c2f8.jpg" alt=""><br>，的优先级最低。易错点：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">1</span>,b=<span class="number">2</span>,c=<span class="number">3</span>,d;</span><br><span class="line">d = ++a,++b,c++;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;d&lt;&lt;<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure></p>
+<p>优先级<br><img src="/20180320083623481/63d9f2d3572c11df57c9a205612762d0f703c2f8.jpg" alt=""><br>结合方式除了单目运算符，三目运算符？：，赋值运算符=，+=，-=等从右向左结合。<strong>，</strong>的优先级最低。易错点：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">1</span>,b=<span class="number">2</span>,c=<span class="number">3</span>,d;</span><br><span class="line">d = ++a,++b,c++;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;d&lt;&lt;<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure></p>
 <p>正确答案输出2，因为 <strong>=</strong> 的优先级高于 <strong>，</strong> 运算符。 <strong>，</strong> 运算符在for循环的循环条件中有出现。</p>
 
       

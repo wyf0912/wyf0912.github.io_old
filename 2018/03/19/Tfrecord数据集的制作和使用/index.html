@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="WangYufei的博客">
 <meta property="og:description" content="Why Tfrecord之前一直在自己电脑上训练，且数据量较小，所以一直没有格式化数据。而且网上资料比较少，所以打算从官方文档读起。官方文档地址在https://www.tensorflow.org/api_guides/python/python_io 官方文档细节一个tfrecords文件包含一个字符串序列与crc32c校验的哈希值。每个记录都有如下格式：1234uint64 lengthui">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-19T14:30:36.159Z">
+<meta property="og:updated_time" content="2018-03-20T01:13:48.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tfrecord数据集的制作和使用">
 <meta name="twitter:description" content="Why Tfrecord之前一直在自己电脑上训练，且数据量较小，所以一直没有格式化数据。而且网上资料比较少，所以打算从官方文档读起。官方文档地址在https://www.tensorflow.org/api_guides/python/python_io 官方文档细节一个tfrecords文件包含一个字符串序列与crc32c校验的哈希值。每个记录都有如下格式：1234uint64 lengthui">
@@ -186,7 +186,40 @@
 <li>Yields:Strings.</li>
 </ul>
 <p>带有yield 的函数在 Python 中被称之为 generator（生成器）</p>
-<h2 id="tf-TFRecordReader"><a href="#tf-TFRecordReader" class="headerlink" title="tf.TFRecordReader"></a>tf.TFRecordReader</h2><p>官网链接：<a href="https://www.tensorflow.org/versions/r1.4/api_docs/python/tf/TFRecordReader" target="_blank" rel="noopener">https://www.tensorflow.org/versions/r1.4/api_docs/python/tf/TFRecordReader</a></p>
+<h2 id="tf-TFRecordReader"><a href="#tf-TFRecordReader" class="headerlink" title="tf.TFRecordReader"></a>tf.TFRecordReader</h2><p>官网链接：<a href="https://www.tensorflow.org/versions/r1.4/api_docs/python/tf/TFRecordReader" target="_blank" rel="noopener">https://www.tensorflow.org/versions/r1.4/api_docs/python/tf/TFRecordReader</a><br>tf.TFRecordReader继承自tf.ReaderBase<br>方法：</p>
+<ul>
+<li><strong>init</strong><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__init__(</span><br><span class="line">    name=<span class="keyword">None</span>,</span><br><span class="line">    options=<span class="keyword">None</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Create a TFRecordReader.</p>
+<blockquote>
+<p>Args:</p>
+<ul>
+<li>name: A name for the operation (optional).</li>
+<li>options: A TFRecordOptions object (optional).</li>
+<li>num_records_produced<br>num_records_produced(name=None)</li>
+</ul>
+</blockquote>
+<p>Returns the number of records this reader has produced.This is the same as the number of Read executions that have succeeded.</p>
+<blockquote>
+<p>Returns:</p>
+<ul>
+<li>An int64 Tensor.</li>
+</ul>
+</blockquote>
+<ul>
+<li>read<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">read(</span><br><span class="line">    queue,</span><br><span class="line">    name=<span class="keyword">None</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Returns the next record (key, value) pair produced by a reader.<br>返回一个由读取器生成的键值对</p>
+<p>Will dequeue a work unit from queue if necessary (e.g. when the Reader needs to start reading from a new file since it has finished with the previous file).</p>
+<p>如果需要可以将一个工作单元出列（例如已经完成了之前的文件需要开始读取新的文件）。</p>
+<blockquote>
+<p>Args:</p>
+<ul>
+<li></li>
+</ul>
+</blockquote>
 <h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><h2 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
 <h2 id="构建writer，用于写入数据"><a href="#构建writer，用于写入数据" class="headerlink" title="构建writer，用于写入数据"></a>构建writer，用于写入数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">writer = tf.python_io.TFRecordWriter(<span class="string">'test.tfrecord'</span>)</span><br></pre></td></tr></table></figure>
 
