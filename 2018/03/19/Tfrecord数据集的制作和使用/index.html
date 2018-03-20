@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://wyf0912.github.io">
   <title>Tfrecord数据集的制作和使用 | WangYufei的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Why Tfrecord之前一直在自己电脑上训练，且数据量较小，所以一直没有格式化数据。而且网上资料比较少，所以打算从官方文档读起。官方文档地址在https://www.tensorflow.org/api_guides/python/python_io 官方文档细节一个tfrecords文件包含一个字符串序列与crc32c校验的哈希值。每个记录都有如下格式：1234uint64 lengthui">
+  <meta name="description" content="Why Tfrecord之前一直在自己电脑上训练，且数据量较小，所以一直没有格式化数据。而且网上资料比较少，所以打算从官方文档读起。官方文档地址在https://www.tensorflow.org/api_guides/python/python_io知乎上的tfrecord和dataset的讲解很好https://zhuanlan.zhihu.com/p/33223782 官方文档细节一个tf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tfrecord数据集的制作和使用">
 <meta property="og:url" content="http://wyf0912.github.io/2018/03/19/Tfrecord数据集的制作和使用/index.html">
 <meta property="og:site_name" content="WangYufei的博客">
-<meta property="og:description" content="Why Tfrecord之前一直在自己电脑上训练，且数据量较小，所以一直没有格式化数据。而且网上资料比较少，所以打算从官方文档读起。官方文档地址在https://www.tensorflow.org/api_guides/python/python_io 官方文档细节一个tfrecords文件包含一个字符串序列与crc32c校验的哈希值。每个记录都有如下格式：1234uint64 lengthui">
+<meta property="og:description" content="Why Tfrecord之前一直在自己电脑上训练，且数据量较小，所以一直没有格式化数据。而且网上资料比较少，所以打算从官方文档读起。官方文档地址在https://www.tensorflow.org/api_guides/python/python_io知乎上的tfrecord和dataset的讲解很好https://zhuanlan.zhihu.com/p/33223782 官方文档细节一个tf">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-20T01:13:48.820Z">
+<meta property="og:updated_time" content="2018-03-20T02:05:39.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tfrecord数据集的制作和使用">
-<meta name="twitter:description" content="Why Tfrecord之前一直在自己电脑上训练，且数据量较小，所以一直没有格式化数据。而且网上资料比较少，所以打算从官方文档读起。官方文档地址在https://www.tensorflow.org/api_guides/python/python_io 官方文档细节一个tfrecords文件包含一个字符串序列与crc32c校验的哈希值。每个记录都有如下格式：1234uint64 lengthui">
+<meta name="twitter:description" content="Why Tfrecord之前一直在自己电脑上训练，且数据量较小，所以一直没有格式化数据。而且网上资料比较少，所以打算从官方文档读起。官方文档地址在https://www.tensorflow.org/api_guides/python/python_io知乎上的tfrecord和dataset的讲解很好https://zhuanlan.zhihu.com/p/33223782 官方文档细节一个tf">
   
     <link rel="alternative" href="/atom.xml" title="WangYufei的博客" type="application/atom+xml">
   
@@ -167,7 +167,7 @@
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Why-Tfrecord"><a href="#Why-Tfrecord" class="headerlink" title="Why Tfrecord"></a>Why Tfrecord</h1><p>之前一直在自己电脑上训练，且数据量较小，所以一直没有格式化数据。而且网上资料比较少，所以打算从官方文档读起。官方文档地址在<a href="https://www.tensorflow.org/api_guides/python/python_io" target="_blank" rel="noopener">https://www.tensorflow.org/api_guides/python/python_io</a></p>
+        <h1 id="Why-Tfrecord"><a href="#Why-Tfrecord" class="headerlink" title="Why Tfrecord"></a>Why Tfrecord</h1><p>之前一直在自己电脑上训练，且数据量较小，所以一直没有格式化数据。而且网上资料比较少，所以打算从官方文档读起。官方文档地址在<a href="https://www.tensorflow.org/api_guides/python/python_io" target="_blank" rel="noopener">https://www.tensorflow.org/api_guides/python/python_io</a><br>知乎上的tfrecord和dataset的讲解很好<br><a href="https://zhuanlan.zhihu.com/p/33223782" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/33223782</a></p>
 <h1 id="官方文档细节"><a href="#官方文档细节" class="headerlink" title="官方文档细节"></a>官方文档细节</h1><p>一个tfrecords文件包含一个字符串序列与crc32c校验的哈希值。每个记录都有如下格式：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">uint64 length</span><br><span class="line">uint32 masked_crc32_of_length</span><br><span class="line">byte   data[length]</span><br><span class="line">uint32 masked_crc32_of_data</span><br></pre></td></tr></table></figure></p>
 <h2 id="tf-python-io-TFRecordWriter"><a href="#tf-python-io-TFRecordWriter" class="headerlink" title="tf.python_io.TFRecordWriter"></a>tf.python_io.TFRecordWriter</h2><p>该类实现了<strong>enter</strong>和<strong>exit</strong>，所以可以使用with代码块的方式。<br>初始化的参数：</p>
 <ul>
@@ -217,11 +217,60 @@
 <blockquote>
 <p>Args:</p>
 <ul>
-<li></li>
+<li>queue: A Queue or a mutable string Tensor representing a handle to a Queue, with string work items.一个队列或者一个可变字符串张量。</li>
+<li>name: A name for the operation (optional).</li>
 </ul>
 </blockquote>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><h2 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Returns:</p>
+<ul>
+<li>一个（key,value）张量的元组。</li>
+<li><strong>key</strong>: A string scalar Tensor. </li>
+<li><strong>value</strong>: A string scalar Tensor.（这里的scalar标量我的理解是和列表或者元组对应，也就是单独的一个数）</li>
+</ul>
+</blockquote>
+<ul>
+<li>read_up_to<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">read_up_to(</span><br><span class="line">    queue,</span><br><span class="line">    num_records,</span><br><span class="line">    name=<span class="keyword">None</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>Args:</p>
+<ul>
+<li>queue: A Queue or a mutable string Tensor representing a handle to a Queue, with string work items.</li>
+<li>num_records: Number of records to read.<br>name: A name for the operation (optional).</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Returns:</p>
+<ul>
+<li>A tuple of Tensors (keys, values). keys: A 1-D string Tensor. values: A 1-D string Tensor.</li>
+</ul>
+</blockquote>
+<ul>
+<li>reset</li>
+<li>restore_state</li>
+<li>serialize_state<br>Produce a string tensor that encodes the state of a reader.</li>
+</ul>
+<p>Not all Readers support being serialized, so this can produce an Unimplemented error.</p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><ul>
+<li>serialize_state</li>
+</ul>
+<p>Produce a string tensor that encodes the state of a reader.</p>
+<p>Not all Readers support being serialized, so this can produce an Unimplemented error.</p>
+<p>返回一个字符串张量。</p>
+<h2 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
 <h2 id="构建writer，用于写入数据"><a href="#构建writer，用于写入数据" class="headerlink" title="构建writer，用于写入数据"></a>构建writer，用于写入数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">writer = tf.python_io.TFRecordWriter(<span class="string">'test.tfrecord'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="写入TFRecord-file"><a href="#写入TFRecord-file" class="headerlink" title="写入TFRecord file"></a>写入TFRecord file</h2><h3 id="创建样本写入字典"><a href="#创建样本写入字典" class="headerlink" title="创建样本写入字典"></a>创建样本写入字典</h3><p>这里准备一个样本一个样本的写入TFRecord file中。</p>
+<p>先把每个样本中所有feature的信息和值存到字典中，key为feature名，value为feature值。</p>
+<p>feature值需要转变成tensorflow指定的feature类型中的一个：</p>
+<h4 id="存储类型"><a href="#存储类型" class="headerlink" title="存储类型"></a>存储类型</h4><ul>
+<li>int64：tf.train.Feature(int64_list = tf.train.Int64List(value=输入))</li>
+<li>float32：tf.train.Feature(float_list = tf.train.FloatList(value=输入))</li>
+<li>string：tf.train.Feature(bytes_list=tf.train.BytesList(value=输入))</li>
+<li>注：输入必须是list(向量)<h4 id="如何处理类型是张量的feature"><a href="#如何处理类型是张量的feature" class="headerlink" title="如何处理类型是张量的feature"></a>如何处理类型是张量的feature</h4>两种方式：</li>
+<li>转成list类型：将张量fatten成list(也就是向量)，再用写入list的方式写入。</li>
+<li>转成string类型：将张量用.tostring()转换成string类型，再用tf.train.Feature(bytes_list=tf.train.BytesList(value=[input.tostring()]))来存储。</li>
+</ul>
 
       
 
