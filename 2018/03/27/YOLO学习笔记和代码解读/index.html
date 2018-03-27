@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wyf0912.github.io">
-  <title>Tag: 数字电路 | WangYufei的博客</title>
+  <title>YOLO学习笔记 | WangYufei的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="WangYufei的博客">
-<meta property="og:url" content="http://wyf0912.github.io/tags/数字电路/index.html">
+  <meta name="description" content="YOLO模型实现端到端输出。论文地址 YOLO模型相比Fast-RCNN和Faster-RCNN都要快很多，不需要RPN网络。其网络结构也很简单，在卷积层之后接两个全链接层，输出每个栅格中物体的种类，两个box的尺寸和IOU。 神经网络的结构如下：YOLO网络借鉴了GoogLeNet分类网络结构。不同的是，YOLO未使用inception module，而是使用1x1卷积层（此处1x1卷积层的存在">
+<meta name="keywords" content="cv,YOLO,代码解读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YOLO学习笔记">
+<meta property="og:url" content="http://wyf0912.github.io/2018/03/27/YOLO学习笔记和代码解读/index.html">
 <meta property="og:site_name" content="WangYufei的博客">
+<meta property="og:description" content="YOLO模型实现端到端输出。论文地址 YOLO模型相比Fast-RCNN和Faster-RCNN都要快很多，不需要RPN网络。其网络结构也很简单，在卷积层之后接两个全链接层，输出每个栅格中物体的种类，两个box的尺寸和IOU。 神经网络的结构如下：YOLO网络借鉴了GoogLeNet分类网络结构。不同的是，YOLO未使用inception module，而是使用1x1卷积层（此处1x1卷积层的存在">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://wyf0912.github.io/20180327090616379/20170420213841466.png">
+<meta property="og:image" content="http://wyf0912.github.io/20180327090616379/20161116185257603.jpg">
+<meta property="og:updated_time" content="2018-03-27T02:06:35.904Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WangYufei的博客">
+<meta name="twitter:title" content="YOLO学习笔记">
+<meta name="twitter:description" content="YOLO模型实现端到端输出。论文地址 YOLO模型相比Fast-RCNN和Faster-RCNN都要快很多，不需要RPN网络。其网络结构也很简单，在卷积层之后接两个全链接层，输出每个栅格中物体的种类，两个box的尺寸和IOU。 神经网络的结构如下：YOLO网络借鉴了GoogLeNet分类网络结构。不同的是，YOLO未使用inception module，而是使用1x1卷积层（此处1x1卷积层的存在">
+<meta name="twitter:image" content="http://wyf0912.github.io/20180327090616379/20170420213841466.png">
   
     <link rel="alternative" href="/atom.xml" title="WangYufei的博客" type="application/atom+xml">
   
@@ -140,75 +148,203 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-YOLO学习笔记和代码解读" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/13/数字电路学习笔记/" class="archive-article-date">
-  	<time datetime="2018-03-13T06:35:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/13/数字电路学习笔记/">数字电路学习笔记</a>
+    <h1 class="article-title" itemprop="name">
+      YOLO学习笔记
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/03/27/YOLO学习笔记和代码解读/" class="archive-article-date">
+  	<time datetime="2018-03-27T01:05:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>YOLO模型实现端到端输出。<a href="http://lanl.arxiv.org/abs/1506.02640" target="_blank" rel="noopener">论文地址</a></p>
+<p>YOLO模型相比Fast-RCNN和Faster-RCNN都要快很多，不需要RPN网络。其网络结构也很简单，在卷积层之后接两个全链接层，输出每个栅格中物体的种类，两个box的尺寸和IOU。<br><img src="/20180327090616379/20170420213841466.png" alt=""></p>
+<p>神经网络的结构如下：<br><img src="/20180327090616379/20161116185257603.jpg" alt=""><br>YOLO网络借鉴了GoogLeNet分类网络结构。不同的是，YOLO未使用inception module，而是使用1x1卷积层（此处1x1卷积层的存在是为了跨通道信息整合）+3x3卷积层简单替代。</p>
+<p>下面主要解读下YOLO tensorflow的代码，代码我已经fork下来了。</p>
+<h1 id="YOLO-V1"><a href="#YOLO-V1" class="headerlink" title="YOLO-V1"></a>YOLO-V1</h1><h2 id="demo-py"><a href="#demo-py" class="headerlink" title="demo.py"></a>demo.py</h2><p>文件用于预测,主要代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">common_params = &#123;<span class="string">'image_size'</span>: <span class="number">448</span>, <span class="string">'num_classes'</span>: <span class="number">20</span>,</span><br><span class="line">                <span class="string">'batch_size'</span>:<span class="number">1</span>&#125;</span><br><span class="line">net_params = &#123;<span class="string">'cell_size'</span>: <span class="number">7</span>, <span class="string">'boxes_per_cell'</span>:<span class="number">2</span>, <span class="string">'weight_decay'</span>: <span class="number">0.0005</span>&#125;</span><br><span class="line">net = YoloTinyNet(common_params, net_params, test=<span class="keyword">True</span>) <span class="comment">#创建一个实例化对象</span></span><br><span class="line">image = tf.placeholder(tf.float32, (<span class="number">1</span>, <span class="number">448</span>, <span class="number">448</span>, <span class="number">3</span>))</span><br><span class="line">predicts = net.inference(image) <span class="comment">#net.inference()返回预测的tensor对象</span></span><br><span class="line">sess = tf.Session(config=tf.ConfigProto(device_count=&#123;<span class="string">'gpu'</span>:<span class="number">0</span>&#125;))</span><br><span class="line">saver = tf.train.Saver(net.trainable_collection)</span><br><span class="line">saver.restore(sess, <span class="string">'models/pretrain/yolo_tiny.ckpt'</span>)</span><br><span class="line">np_predict = sess.run(predicts, feed_dict=&#123;image: np_img&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>该文件定义了处理预测结果的函数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_predicts</span><span class="params">(predicts)</span>:</span></span><br><span class="line">    p_classes = predicts[<span class="number">0</span>, :, :, <span class="number">0</span>:<span class="number">20</span>]</span><br><span class="line">    C = predicts[<span class="number">0</span>, :, :, <span class="number">20</span>:<span class="number">22</span>]</span><br><span class="line">    coordinate = predicts[<span class="number">0</span>, :, :, <span class="number">22</span>:]</span><br><span class="line">    p_classes = np.reshape(p_classes, (<span class="number">7</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">20</span>))</span><br><span class="line">    C = np.reshape(C, (<span class="number">7</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">1</span>))</span><br><span class="line">    P = C * p_classes</span><br><span class="line">    <span class="comment">#print(P[5,1, 0, :])</span></span><br><span class="line">    print(P.shape)</span><br><span class="line">    <span class="comment">#np.savetxt("predict_data.txt", P)</span></span><br><span class="line">    index = np.argmax(P)</span><br><span class="line">    index = np.unravel_index(index, P.shape)</span><br><span class="line">    print(index)</span><br><span class="line">    print(P[index])</span><br><span class="line">    class_num = index[<span class="number">3</span>]</span><br><span class="line">    coordinate = np.reshape(coordinate, (<span class="number">7</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">4</span>))</span><br><span class="line">    max_coordinate = coordinate[index[<span class="number">0</span>], index[<span class="number">1</span>], index[<span class="number">2</span>], :]</span><br><span class="line">    xcenter = max_coordinate[<span class="number">0</span>]</span><br><span class="line">    ycenter = max_coordinate[<span class="number">1</span>]</span><br><span class="line">    w = max_coordinate[<span class="number">2</span>]</span><br><span class="line">    h = max_coordinate[<span class="number">3</span>]</span><br><span class="line">    xcenter = (index[<span class="number">1</span>] + xcenter) * (<span class="number">448</span>/<span class="number">7.0</span>)</span><br><span class="line">    ycenter = (index[<span class="number">0</span>] + ycenter) * (<span class="number">448</span>/<span class="number">7.0</span>)</span><br><span class="line">    w = w * <span class="number">448</span></span><br><span class="line">    h = h * <span class="number">448</span></span><br><span class="line">    xmin = xcenter - w/<span class="number">2.0</span></span><br><span class="line">    ymin = ycenter - h/<span class="number">2.0</span></span><br><span class="line">    xmax = xmin + w</span><br><span class="line">    ymax = ymin + h</span><br><span class="line">    <span class="keyword">return</span> xmin, ymin, xmax, ymax, class_num</span><br></pre></td></tr></table></figure></p>
+<p>主要是这两行<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">index = np.argmax(P) <span class="comment">#P是类别概率的一个多维的向量，得到最大概率的下标</span></span><br><span class="line">index = np.unravel_index(index, P.shape) <span class="comment">#计算在多维向量中的位置</span></span><br></pre></td></tr></table></figure></p>
+<p>然而这个demo只能预测单分类，之后改下…<br>然后看下网络结构：</p>
+<h2 id="net-py"><a href="#net-py" class="headerlink" title="net.py"></a>net.py</h2><p>因为之前demo用到的yolo_tiny_net是继承自net,所以先看net.py<br>net.py主要定义了下面几个函数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_variable_on_cpu</span><span class="params">(self, name, shape, initializer, pretrain=True, train=True)</span>:</span></span><br><span class="line">    <span class="string">"""Helper to create a Variable stored on CPU memory.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">      name: name of the Variable</span></span><br><span class="line"><span class="string">      shape: list of ints</span></span><br><span class="line"><span class="string">      initializer: initializer of Variable</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">      Variable Tensor</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">with</span> tf.device(<span class="string">'/cpu:0'</span>):</span><br><span class="line">      var = tf.get_variable(name, shape, initializer=initializer, dtype=tf.float32)</span><br><span class="line">      <span class="keyword">if</span> pretrain:</span><br><span class="line">        self.pretrained_collection.append(var)</span><br><span class="line">      <span class="keyword">if</span> train:</span><br><span class="line">        self.trainable_collection.append(var)</span><br><span class="line">    <span class="keyword">return</span> var</span><br></pre></td></tr></table></figure></p>
+<p> 占坑</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">cv</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数字电路</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YOLO</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">代码解读</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://wyf0912.github.io/2018/03/27/YOLO学习笔记和代码解读/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/03/19/Tfrecord数据集的制作和使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Tfrecord数据集的制作和使用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://wyf0912.github.io/2018/03/27/YOLO学习笔记和代码解读/",
+  owner: 'wyf0912',
+  repo: 'wyf0912.github.io',
+  oauth: {
+    client_id: '97a4d5ea8203861ad0e8',
+    client_secret: '522685d2eb11746b934470aa9270ccd24dccb04c',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -231,9 +367,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

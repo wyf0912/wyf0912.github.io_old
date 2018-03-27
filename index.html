@@ -142,6 +142,100 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-YOLO学习笔记和代码解读" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/27/YOLO学习笔记和代码解读/">YOLO学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/27/YOLO学习笔记和代码解读/" class="archive-article-date">
+  	<time datetime="2018-03-27T01:05:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>YOLO模型实现端到端输出。<a href="http://lanl.arxiv.org/abs/1506.02640" target="_blank" rel="noopener">论文地址</a></p>
+<p>YOLO模型相比Fast-RCNN和Faster-RCNN都要快很多，不需要RPN网络。其网络结构也很简单，在卷积层之后接两个全链接层，输出每个栅格中物体的种类，两个box的尺寸和IOU。<br><img src="/20180327090616379/20170420213841466.png" alt=""></p>
+<p>神经网络的结构如下：<br><img src="/20180327090616379/20161116185257603.jpg" alt=""><br>YOLO网络借鉴了GoogLeNet分类网络结构。不同的是，YOLO未使用inception module，而是使用1x1卷积层（此处1x1卷积层的存在是为了跨通道信息整合）+3x3卷积层简单替代。</p>
+<p>下面主要解读下YOLO tensorflow的代码，代码我已经fork下来了。</p>
+<h1 id="YOLO-V1"><a href="#YOLO-V1" class="headerlink" title="YOLO-V1"></a>YOLO-V1</h1><h2 id="demo-py"><a href="#demo-py" class="headerlink" title="demo.py"></a>demo.py</h2><p>文件用于预测,主要代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">common_params = &#123;<span class="string">'image_size'</span>: <span class="number">448</span>, <span class="string">'num_classes'</span>: <span class="number">20</span>,</span><br><span class="line">                <span class="string">'batch_size'</span>:<span class="number">1</span>&#125;</span><br><span class="line">net_params = &#123;<span class="string">'cell_size'</span>: <span class="number">7</span>, <span class="string">'boxes_per_cell'</span>:<span class="number">2</span>, <span class="string">'weight_decay'</span>: <span class="number">0.0005</span>&#125;</span><br><span class="line">net = YoloTinyNet(common_params, net_params, test=<span class="keyword">True</span>) <span class="comment">#创建一个实例化对象</span></span><br><span class="line">image = tf.placeholder(tf.float32, (<span class="number">1</span>, <span class="number">448</span>, <span class="number">448</span>, <span class="number">3</span>))</span><br><span class="line">predicts = net.inference(image) <span class="comment">#net.inference()返回预测的tensor对象</span></span><br><span class="line">sess = tf.Session(config=tf.ConfigProto(device_count=&#123;<span class="string">'gpu'</span>:<span class="number">0</span>&#125;))</span><br><span class="line">saver = tf.train.Saver(net.trainable_collection)</span><br><span class="line">saver.restore(sess, <span class="string">'models/pretrain/yolo_tiny.ckpt'</span>)</span><br><span class="line">np_predict = sess.run(predicts, feed_dict=&#123;image: np_img&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>该文件定义了处理预测结果的函数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_predicts</span><span class="params">(predicts)</span>:</span></span><br><span class="line">    p_classes = predicts[<span class="number">0</span>, :, :, <span class="number">0</span>:<span class="number">20</span>]</span><br><span class="line">    C = predicts[<span class="number">0</span>, :, :, <span class="number">20</span>:<span class="number">22</span>]</span><br><span class="line">    coordinate = predicts[<span class="number">0</span>, :, :, <span class="number">22</span>:]</span><br><span class="line">    p_classes = np.reshape(p_classes, (<span class="number">7</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">20</span>))</span><br><span class="line">    C = np.reshape(C, (<span class="number">7</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">1</span>))</span><br><span class="line">    P = C * p_classes</span><br><span class="line">    <span class="comment">#print(P[5,1, 0, :])</span></span><br><span class="line">    print(P.shape)</span><br><span class="line">    <span class="comment">#np.savetxt("predict_data.txt", P)</span></span><br><span class="line">    index = np.argmax(P)</span><br><span class="line">    index = np.unravel_index(index, P.shape)</span><br><span class="line">    print(index)</span><br><span class="line">    print(P[index])</span><br><span class="line">    class_num = index[<span class="number">3</span>]</span><br><span class="line">    coordinate = np.reshape(coordinate, (<span class="number">7</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">4</span>))</span><br><span class="line">    max_coordinate = coordinate[index[<span class="number">0</span>], index[<span class="number">1</span>], index[<span class="number">2</span>], :]</span><br><span class="line">    xcenter = max_coordinate[<span class="number">0</span>]</span><br><span class="line">    ycenter = max_coordinate[<span class="number">1</span>]</span><br><span class="line">    w = max_coordinate[<span class="number">2</span>]</span><br><span class="line">    h = max_coordinate[<span class="number">3</span>]</span><br><span class="line">    xcenter = (index[<span class="number">1</span>] + xcenter) * (<span class="number">448</span>/<span class="number">7.0</span>)</span><br><span class="line">    ycenter = (index[<span class="number">0</span>] + ycenter) * (<span class="number">448</span>/<span class="number">7.0</span>)</span><br><span class="line">    w = w * <span class="number">448</span></span><br><span class="line">    h = h * <span class="number">448</span></span><br><span class="line">    xmin = xcenter - w/<span class="number">2.0</span></span><br><span class="line">    ymin = ycenter - h/<span class="number">2.0</span></span><br><span class="line">    xmax = xmin + w</span><br><span class="line">    ymax = ymin + h</span><br><span class="line">    <span class="keyword">return</span> xmin, ymin, xmax, ymax, class_num</span><br></pre></td></tr></table></figure></p>
+<p>主要是这两行<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">index = np.argmax(P) <span class="comment">#P是类别概率的一个多维的向量，得到最大概率的下标</span></span><br><span class="line">index = np.unravel_index(index, P.shape) <span class="comment">#计算在多维向量中的位置</span></span><br></pre></td></tr></table></figure></p>
+<p>然而这个demo只能预测单分类，之后改下…<br>然后看下网络结构：</p>
+<h2 id="net-py"><a href="#net-py" class="headerlink" title="net.py"></a>net.py</h2><p>因为之前demo用到的yolo_tiny_net是继承自net,所以先看net.py<br>net.py主要定义了下面几个函数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_variable_on_cpu</span><span class="params">(self, name, shape, initializer, pretrain=True, train=True)</span>:</span></span><br><span class="line">    <span class="string">"""Helper to create a Variable stored on CPU memory.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">      name: name of the Variable</span></span><br><span class="line"><span class="string">      shape: list of ints</span></span><br><span class="line"><span class="string">      initializer: initializer of Variable</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">      Variable Tensor</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">with</span> tf.device(<span class="string">'/cpu:0'</span>):</span><br><span class="line">      var = tf.get_variable(name, shape, initializer=initializer, dtype=tf.float32)</span><br><span class="line">      <span class="keyword">if</span> pretrain:</span><br><span class="line">        self.pretrained_collection.append(var)</span><br><span class="line">      <span class="keyword">if</span> train:</span><br><span class="line">        self.trainable_collection.append(var)</span><br><span class="line">    <span class="keyword">return</span> var</span><br></pre></td></tr></table></figure></p>
+<p> 占坑</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">cv</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YOLO</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">代码解读</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/27/YOLO学习笔记和代码解读/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Tfrecord数据集的制作和使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -393,11 +487,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
         		</li>
       		
 		</ul>
@@ -586,9 +680,15 @@
 <ul>
 <li>门电路所具有的输入端的数目</li>
 <li>导通电阻的可加性限制了CMOS的数量</li>
-<li>通过较少门电路的级联增加输入端的数目 </li>
+<li>通过较少门电路的级联增加输入端的数目</li>
 </ul>
 </blockquote>
+<h1 id="组合逻辑设计原理"><a href="#组合逻辑设计原理" class="headerlink" title="组合逻辑设计原理"></a>组合逻辑设计原理</h1><h2 id="基本概念："><a href="#基本概念：" class="headerlink" title="基本概念："></a>基本概念：</h2><p>逻辑电路分为两大类：</p>
+<ul>
+<li><strong>组合逻辑电路</strong>：任何时刻的输出仅取决于当时的输入</li>
+<li><strong>时序逻辑电路</strong>：任一时刻的输出不仅取决于当时的输入，还取决于过去的输入序列</li>
+</ul>
+<h2 id="开关代数："><a href="#开关代数：" class="headerlink" title="开关代数："></a>开关代数：</h2><p><img src="/20180322083155086/20180322083951415.png" alt=""></p>
 
       
 
@@ -602,11 +702,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数字电路</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数字电路</a>
         		</li>
       		
 		</ul>
@@ -854,7 +954,8 @@
 </blockquote>
 <h3 id="因特网运输协议提供的服务"><a href="#因特网运输协议提供的服务" class="headerlink" title="因特网运输协议提供的服务"></a>因特网运输协议提供的服务</h3><p><img src="https://i.loli.net/2018/03/20/5ab07f8aec4e9.png" alt=""><br><img src="https://i.loli.net/2018/03/20/5ab07f8ad05f5.png" alt=""></p>
 <h3 id="因特网应用"><a href="#因特网应用" class="headerlink" title="因特网应用"></a>因特网应用</h3><p><img src="https://i.loli.net/2018/03/20/5ab08464c7567.png" alt=""></p>
-<h2 id="Web和HTTP"><a href="#Web和HTTP" class="headerlink" title="Web和HTTP"></a>Web和HTTP</h2>
+<h2 id="Web和HTTP"><a href="#Web和HTTP" class="headerlink" title="Web和HTTP"></a>Web和HTTP</h2><h3 id="非持久HTTP连接"><a href="#非持久HTTP连接" class="headerlink" title="非持久HTTP连接"></a>非持久HTTP连接</h3><p><img src="/计算机网络学习笔记/20180322103713758.png" alt=""><br><img src="/计算机网络学习笔记/20180322104502744.png" alt=""></p>
+
       
 
       
@@ -1028,11 +1129,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机视觉</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">cv</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">cv</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机视觉</a>
         		</li>
       		
 		</ul>
@@ -1233,11 +1334,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1245,7 +1346,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数字电路</a>
+                <a href="javascript:void(0)" class="js-tag color5">YOLO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码解读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1253,11 +1366,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color5">数字电路</a>
               </li>
              
               <li class="article-tag-list-item">
