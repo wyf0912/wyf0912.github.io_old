@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wyf0912.github.io">
-  <title>Tag: 随笔 | WangYufei的博客</title>
+  <title>YOLO v1-v3的总结对比 | WangYufei的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="WangYufei的博客">
-<meta property="og:url" content="http://wyf0912.github.io/tags/随笔/index.html">
+  <meta name="description" content="前两周才看完Yolo v1,Yolo v2,导师告诉我还有v3,果然看论文的随度还是赶不上别人发论文的速度。水平有限很多理解有误或不深入。 YOLO v1YOLO v1的论文是这个。 简单介绍作者提出了一种新的物体检测方法YOLO。YOLO之前的物体检测方法主要是通过region proposal产生大量的可能包含待检测物体的 potential bounding box，再用分类器去判断每个 b">
+<meta name="keywords" content="cv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YOLO v1-v3的总结对比">
+<meta property="og:url" content="http://wyf0912.github.io/2018/04/04/v1-v3的总结对比/index.html">
 <meta property="og:site_name" content="WangYufei的博客">
+<meta property="og:description" content="前两周才看完Yolo v1,Yolo v2,导师告诉我还有v3,果然看论文的随度还是赶不上别人发论文的速度。水平有限很多理解有误或不深入。 YOLO v1YOLO v1的论文是这个。 简单介绍作者提出了一种新的物体检测方法YOLO。YOLO之前的物体检测方法主要是通过region proposal产生大量的可能包含待检测物体的 potential bounding box，再用分类器去判断每个 b">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://wyf0912.github.io/20180404114737273/20180404125042386.png">
+<meta property="og:updated_time" content="2018-04-04T04:55:16.358Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WangYufei的博客">
+<meta name="twitter:title" content="YOLO v1-v3的总结对比">
+<meta name="twitter:description" content="前两周才看完Yolo v1,Yolo v2,导师告诉我还有v3,果然看论文的随度还是赶不上别人发论文的速度。水平有限很多理解有误或不深入。 YOLO v1YOLO v1的论文是这个。 简单介绍作者提出了一种新的物体检测方法YOLO。YOLO之前的物体检测方法主要是通过region proposal产生大量的可能包含待检测物体的 potential bounding box，再用分类器去判断每个 b">
+<meta name="twitter:image" content="http://wyf0912.github.io/20180404114737273/20180404125042386.png">
   
     <link rel="alternative" href="/atom.xml" title="WangYufei的博客" type="application/atom+xml">
   
@@ -140,60 +147,204 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-v1-v3的总结对比" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/12/Hello-world-0/" class="archive-article-date">
-  	<time datetime="2018-03-12T14:49:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/12/Hello-world-0/">Hello world</a>
+    <h1 class="article-title" itemprop="name">
+      YOLO v1-v3的总结对比
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/04/04/v1-v3的总结对比/" class="archive-article-date">
+  	<time datetime="2018-04-04T03:45:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前两周才看完Yolo v1,Yolo v2,导师告诉我还有v3,果然看论文的随度还是赶不上别人发论文的速度。<br>水平有限很多理解有误或不深入。</p>
+<h1 id="YOLO-v1"><a href="#YOLO-v1" class="headerlink" title="YOLO v1"></a>YOLO v1</h1><p><a href="https://arxiv.org/abs/1506.02640" target="_blank" rel="noopener">YOLO v1</a>的论文是这个。</p>
+<h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><p>作者提出了一种新的物体检测方法YOLO。YOLO之前的物体检测方法主要是通过region proposal产生大量的可能包含待检测物体的 potential bounding box，再用分类器去判断每个 bounding box里是否包含有物体，以及物体所属类别的 probability或者 confidence，如R-CNN,Fast-R-CNN,Faster-R-CNN等。</p>
+<p>YOLO不同于这些物体检测方法，它将物体检测任务当做一个regression问题来处理，使用一个神经网络，直接从一整张图像来预测出bounding box 的坐标、box中包含物体的置信度和物体的probabilities。因为YOLO的物体检测流程是在一个神经网络里完成的，所以可以<em>end to end</em>来优化物体检测性能。</p>
+<p>先介绍写YOLO v1的特点：</p>
+<ul>
+<li>YOLO相对于之前的目标检测方法很快<ul>
+<li>因为将目标检测作为一个回归的问题。在基础版本TITAN X上可以达到45fps，更快的版本可以达到150fps</li>
+<li>与其他实时目标检测准确度更高，达到其他实时目标检测精度的两倍以上。</li>
+</ul>
+</li>
+<li>因为YOLO v1卷积层后面是全连接层。和之前滑动窗口方法的目标检测相比，因为后面是全连接层，可以整合整张图片的信息，背景识别错误率仅为Fast RCNN的一半。</li>
+<li>能够学到更抽象的特征，遇到不同domain的时候更不容易失效。</li>
+</ul>
+<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>YOLO是一个端到端end-to-end的神经网络。作者将输入的图片分成$S\times S$ 个grids。物体的中心落入哪个格子，哪个grid就负责预测该物体的种类，大小，和位置与格子中心的偏移量。也就是说每个grid包含了五个预测值x,y,w,h和confidence</p>
+<blockquote>
+<p>x.y是相对格子中心的，w,h是相对于整个图像的。<br>confidence代表预测框和真实框的IOU</p>
+</blockquote>
+<p>每个grid还包含物体种类信息。$Pr(Class_i|Object)$<br><img src="/20180404114737273/20180404125042386.png" alt=""></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">cv</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://wyf0912.github.io/2018/04/04/v1-v3的总结对比/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/03/27/YOLO学习笔记和代码解读/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">YOLO学习笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://wyf0912.github.io/2018/04/04/v1-v3的总结对比/",
+  owner: 'wyf0912',
+  repo: 'wyf0912.github.io',
+  oauth: {
+    client_id: '97a4d5ea8203861ad0e8',
+    client_secret: '522685d2eb11746b934470aa9270ccd24dccb04c',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -216,9 +367,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
