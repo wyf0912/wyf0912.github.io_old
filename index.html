@@ -179,11 +179,40 @@
 <li>因为YOLO v1卷积层后面是全连接层。和之前滑动窗口方法的目标检测相比，因为后面是全连接层，可以整合整张图片的信息，背景识别错误率仅为Fast RCNN的一半。</li>
 <li>能够学到更抽象的特征，遇到不同domain的时候更不容易失效。</li>
 </ul>
-<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>YOLO是一个端到端end-to-end的神经网络。作者将输入的图片分成$S\times S$ 个grids。物体的中心落入哪个格子，哪个grid就负责预测该物体的种类，大小，和位置与格子中心的偏移量。也就是说每个grid包含了五个预测值x,y,w,h和confidence</p>
-<blockquote>
-<p>x.y是相对格子中心的，w,h是相对于整个图像的。<br>confidence代表预测框和真实框的IOU</p>
-</blockquote>
-<p>每个grid还包含物体种类信息。$Pr(Class_i|Object)$<br><img src="/20180404114737273/20180404125042386.png" alt=""></p>
+<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>YOLO是一个端到端end-to-end的神经网络。作者将输入的图片分成$S\times S$ 个grids。物体的中心落入哪个格子，哪个grid就负责预测该物体的种类，大小，和位置与格子中心的偏移量。也就是说每个grid的box包含了五个预测值x,y,w,h和confidence</p>
+<ul>
+<li>x.y是相对格子中心的，w,h是相对于整个图像的。</li>
+<li>confidence代表预测框和真实框的IOU</li>
+<li>一个grid产生B个BOX</li>
+</ul>
+<p>每个grid还包含物体种类信息。$Pr(Class_i|Object)$<br><img src="https://i.loli.net/2018/04/05/5ac640db90a7e.png" alt=""><br>具体的网络结构如下图<br><img src="https://i.loli.net/2018/04/05/5ac640da38f45.png" alt="The Architecture"><br>YOLO网络前部分借鉴了GoogLeNet,其有24个卷积层，4个最大池化，后面跟两个全连接。<br>YOLO没有使用inception model而是简化在每个3*3卷积后跟一个1*1卷积。</p>
+<h2 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h2><h3 id="预训练"><a href="#预训练" class="headerlink" title="预训练"></a>预训练</h3><p>利用ImageNet的1000分类数据集进行预训练。（预训练的时候图像分辨率是224*224</p>
+<p>使用前20个卷积层（为什么不用24个…)后跟一个平均池化层和一个全连接层。作者训练了一周，top-5 accuracy 在 ImageNet 2012 validation 达到了88%。为了得到细粒化信息，将分辨率增加到了448*448。</p>
+<p>全连接层输出每类的可能和box的坐标，坐标和box的值都归一到了0-1。</p>
+<p>构造损失函数的时候，增加了影响的系数，使用平方和。B个box选取置信度最高的一个。<br><img src="https://i.loli.net/2018/04/05/5ac640d495a55.png" alt=""><br>（犯懒了 orz 直接贴损失函数公式了…<br>这个损失函数看起来有点长，其实分别为以下几项：</p>
+<ul>
+<li>第一项：预测位置的误差，其中求和后面那个符号代表第i个网格中的第j个box是否负责这个object</li>
+<li>第二项：bounding box尺寸的误差：使用根号是为了较小不同大小bounding box带来较大的损失差别</li>
+<li>第三项：含有object的box的分类误差</li>
+<li>第四项：不含object的box分类误差（第三项和第四项之所以分开是因为大多数grid是么醇厚object,如果损失不加上权重的话会导致训练效果不好。</li>
+<li>第五项：置信度的loss，也就是判断是否有物体的中心落在某个格子。</li>
+</ul>
+<h3 id="训练细节"><a href="#训练细节" class="headerlink" title="训练细节"></a>训练细节</h3><ul>
+<li>正如损失函数写的，只有该bounding box负责该物体的时候，才会产生loss</li>
+<li>a batch size of 64, a momentum of 0.9 and a decay of 0.0005.</li>
+<li>使用了dropout和广泛的数据扩增<ul>
+<li>drop的概率0.5防止层间的协同调整…(好吧..dropout层起作用的原理一直没有很明白</li>
+<li>数据扩增和缩放，曝光和饱和度的调整</li>
+</ul>
+</li>
+</ul>
+<h2 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h2><p>预测就是单个网络简单的前向传播。然后有的物体可能在多个box中，所以使用了非极大值抑制。但没有像R-CNN和DPM对非极大值抑制那么依赖，其提升了2-3%的mAP。</p>
+<h2 id="训练结果"><a href="#训练结果" class="headerlink" title="训练结果"></a>训练结果</h2><p>部分测试结果如下图<br><img src="https://i.loli.net/2018/04/05/5ac640e2cf6e5.png" alt=""></p>
+<ul>
+<li>首先YOLO-v1对抽象的图像也能比较好适用…不知道对迁移学习有没有帮助。</li>
+<li>2行2列的图中把人当作了飞机…可能这有些因为后面跟的是全链接层，考虑了人在天上的因素…</li>
+</ul>
+<h1 id="YOLO-v2"><a href="#YOLO-v2" class="headerlink" title="YOLO v2"></a>YOLO v2</h1><p>YOLO v2的地址是这个，<a href="https://arxiv.org/abs/1612.08242" target="_blank" rel="noopener">YOLO9000: Better, Faster, Stronger</a><br>YOLO v2相比YOLO v1我感觉有很多的改动，下面进行总结和对比。</p>
 
       
 
