@@ -220,7 +220,34 @@
 <li>准确率提高，可以超过faster-RCNN， Res-Net和SSD，并且速率比他们高</li>
 <li>实现了了目标分类和检测的联合训练..</li>
 </ul>
-<p>##</p>
+<h2 id="Better"><a href="#Better" class="headerlink" title="Better"></a>Better</h2><h3 id="Batch-Normalization"><a href="#Batch-Normalization" class="headerlink" title="Batch Normalization"></a>Batch Normalization</h3><p>CNN在训练过程中网络每层输入的分布一直在改变, 会使训练过程难度加大，但可以通过normalize每层的输入解决这个问题。新的YOLO网络在每一个卷积层后添加batch normalization，通过这一方法，mAP获得了2%的提升。batch normalization 也有助于规范化模型，可以在舍弃dropout优化后依然不会过拟合。</p>
+<p>Batch Normalization在这里<a href="https://arxiv.org/pdf/1502.03167.pdf?" target="_blank" rel="noopener">Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift</a></p>
+<h3 id="High-Resolution-Classifier"><a href="#High-Resolution-Classifier" class="headerlink" title="High Resolution Classifier"></a>High Resolution Classifier</h3><p>之前的预训练是224*224，作者微调到了448*448。所以作者先用448*448的图片微调分类网络，进行了10epoch,然后再训练detect网络。</p>
+<h3 id="Convolutional-With-Anchor-Boxe"><a href="#Convolutional-With-Anchor-Boxe" class="headerlink" title="Convolutional With Anchor Boxe"></a>Convolutional With Anchor Boxe</h3><p>YOLO-v2取消了全连接层，而是使用anchor box(应该是借鉴SSD）。去掉了一个池化层来得到更高的分辨率。为了最后得到奇数个位置，确定中心，所以分辨率改为416*416。最后得到一个13*13的feature map。<br>使用anchor box的好处是候选框变多了（…orz fast-rnn候选框更多呀…)</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>without anchor boxes</th>
+<th>with ancohor boxes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mAP</td>
+<td>69.5</td>
+<td>69.2</td>
+</tr>
+<tr>
+<td>recall</td>
+<td>81</td>
+<td>88</td>
+</tr>
+</tbody>
+</table>
+<p>召回率的提升还是蛮大的..</p>
+<h3 id="Dimension-Clusters（维度聚类）"><a href="#Dimension-Clusters（维度聚类）" class="headerlink" title="Dimension Clusters（维度聚类）"></a>Dimension Clusters（维度聚类）</h3><p>作者使用K-means对Bouding box进行聚类。</p>
+<p>传统的聚类方法是用欧式距离，这样大的box往往有更大的error，所以作者采用1-IOU作为聚类的距离。这样就和尺度无关了。<br><img src="/20180405221246053/20180406025855699.png" alt=""><br>上图是聚类的结果，作者在recall和模型复杂度之间做了一个平衡，选择k=5，达到了和faster-rcnn 9种boundning box相当的召回率。</p>
 
       
 
