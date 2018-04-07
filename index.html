@@ -462,7 +462,7 @@ $$
 <p>这个方法有一些挑战。detection的数据集只有一些常见的物体，而classification的训练集范围更宽，例如狗的种类就超过了100种。</p>
 <p>绝大多数的方法使用softmax层，考虑了所有的种类。然而这是假设这些类别是互斥的</p>
 <h3 id="Hierarchical-classification（分层分类）"><a href="#Hierarchical-classification（分层分类）" class="headerlink" title="Hierarchical classification（分层分类）"></a>Hierarchical classification（分层分类）</h3><p>ImageNet的标签是来自WordNet的。WordNet的结构是一个有向图而不是树（因为树中每个节点只有一个双亲）。作者将问题简化成从ImageNet中构建一个分层的树。</p>
-<p><img src="/20180407133157402/20180407020833164.png" alt=""></p>
+<p><img src="https://i.loli.net/2018/04/07/5ac893492d0d3.png" alt=""></p>
 <p>这是一个计算absolute probability的例子，使用条件概率的公式。</p>
 <p>作者增加了中间节点，使其从1000类到1369类。为了计算条件概率，模型预测了1369个值，并且计算相同概念下义词的softmax。在和之前训练参数相同的条件下，获得了71.9%的top-1准确度和90.4%的top-5准确度。</p>
 <p>这种方式有好处的，例如当神经网络不能很好确定狗的品种的时候，其仍然可以预测是狗。</p>
@@ -470,19 +470,19 @@ $$
 <p><img src="/20180407133157402/20180407022827034.png" alt=""></p>
 <p>上图是两种softmax的对比。一个是大部分ImageNet将所有的类用一个softmax进行预测。WordTree是使用多个softmax分类器，类似广度优先遍历那样。</p>
 <p>由于两个训练集之间数据量不均衡，所以作者才用了oversampling。使比例大约4:1.</p>
-<p><img src="/20180407133157402/20180407033752561.png" alt=""><br>(例如训练飞机的时候coco的数据集到蓝色的飞机这层，损失应该是仅仅到蓝色的飞机+bounding box的误差，然后训练ImageNet上的训练集的时候，相当于是从根节点到红色叶子节点的loss)</p>
-<p><img src="/20180407133157402/20180407034947882.png" alt=""></p>
+<p><img src="https://i.loli.net/2018/04/07/5ac8934b214da.png" alt=""><br>(例如训练飞机的时候coco的数据集到蓝色的飞机这层，损失应该是仅仅到蓝色的飞机+bounding box的误差，然后训练ImageNet上的训练集的时候，相当于是从根节点到红色叶子节点的loss)</p>
+<p><img src="https://i.loli.net/2018/04/07/5ac8934be8760.png" alt=""></p>
 <p>这个图是ImageNet上效果最好和最差的类别。可以发现动物类别的效果还是不错的，因为COCO里面有类别。</p>
 <h1 id="YOLO-v3"><a href="#YOLO-v3" class="headerlink" title="YOLO v3"></a>YOLO v3</h1><p><a href="https://pjreddie.com/media/files/papers/YOLOv3.pdf" target="_blank" rel="noopener">YOLOv3: An Incremental Improvement </a></p>
 <p>YOLO-v3的变化不是特别多，通过优化提高了速度，mAP变化不是特别大</p>
 <p>在320×320的分辨率下，YOLOv3运行22.2ms，28.2 mAP，像SSD一样准确，但速度快三倍。 当使用0.5 IOU mAP检测指标时，YOLOv3是相当不错的。 在Titan X上，它在51 ms内实现了57.9的$AP_{50}$，与RetinaNet在198 ms内的57.5$AP_{50}$相当，性能相似但速度快3.8倍。</p>
-<h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><p>作者使用了一些其他人的好的方法，训练了一个更好的分类网络。<br><img src="/20180407133157402/20180407044211013.png" alt=""></p>
+<h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><p>作者使用了一些其他人的好的方法，训练了一个更好的分类网络。<br><img src="https://i.loli.net/2018/04/07/5ac8934be86d9.png" alt=""></p>
 <h2 id="Bouding-Box预测"><a href="#Bouding-Box预测" class="headerlink" title="Bouding Box预测"></a>Bouding Box预测</h2><p>YOLO v3使用logistic回归来预测objectness score。每一个ground truth只匹配一个bounding box。如果一个bounding box不属于一个ground truth，那么这个bounding box的误差就仅仅含有objectness的loss,而不含有坐标和类别loss。</p>
 <h2 id="class-prediction"><a href="#class-prediction" class="headerlink" title="class prediction"></a>class prediction</h2><p>类别预测由原来的softmax改为每一类一个logistic，这样可以应对多分类问题</p>
 <h2 id="多尺度预测"><a href="#多尺度预测" class="headerlink" title="多尺度预测"></a>多尺度预测</h2><p>YOLOv3 predicts boxes at 3 different scales. Our system extracts features from those scales using a similar concept to feature pyramid networks [6]。金字塔网络…不是很理解</p>
 <p>[6] T.-Y. Lin, P. Dollar, R. Girshick, K. He, B. Hariharan, and<br>S. Belongie. Feature pyramid networks for object detection.<br>In Proceedings of the IEEE Conference on Computer Vision<br>and Pattern Recognition, pages 2117–2125, 2017. 2</p>
 <p>参考文献是这篇，今后再补充。</p>
-<h2 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h2><p><img src="/20180407133157402/20180407052050251.png" alt=""><br>（Residual是借鉴残差网络嘛…不是很懂QUQ…一会去看下残差网络)</p>
+<h2 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h2><p><img src="https://i.loli.net/2018/04/07/5ac8934bc785b.png" alt=""><br>（Residual是借鉴残差网络嘛…不是很懂QUQ…一会去看下残差网络)</p>
 <h2 id="作者尝试但没有起作用的"><a href="#作者尝试但没有起作用的" class="headerlink" title="作者尝试但没有起作用的"></a>作者尝试但没有起作用的</h2><p><strong>Anchor box x，y offset predictions。</strong>我们尝试使用正常anchor box预测机制，这里你使用线性激活来预测x，y offset作为box的宽度或高度的倍数。我们发现这种方法降低了模型的稳定性，并且效果不佳。</p>
 <p><strong>Linear x，y predictions instead of logistic。</strong>我们尝试使用线性激活来直接预测x，y offeset 而不是逻辑激活。这导致mAP下降了几个点。</p>
 <p><strong>Focal loss。</strong>我们尝试使用focal loss。它使得mAp降低了2个点。YOLOv3对focal loss解决的问题可能已经很强大，因为它具有单独的对象预测和条件类别预测。 因此，对于大多数例子来说，类别预测没有损失？ 或者其他的东西？ 我们并不完全确定。</p>
