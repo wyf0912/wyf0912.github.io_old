@@ -9,7 +9,7 @@
   <title>YOLO v1-v3的总结对比 | WangYufei的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前两周才看完Yolo v1,Yolo v2,导师告诉我还有v3,果然看论文的随度还是赶不上别人发论文的速度。水平有限很多理解有误或不深入。 YOLO v1YOLO v1的论文是这个。 简单介绍作者提出了一种新的物体检测方法YOLO。YOLO之前的物体检测方法主要是通过region proposal产生大量的可能包含待检测物体的 potential bounding box，再用分类器去判断每个 b">
-<meta name="keywords" content="cv， YOLO">
+<meta name="keywords" content="cv,YOLO">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YOLO v1-v3的总结对比">
 <meta property="og:url" content="http://wyf0912.github.io/2018/04/04/v1-v3的总结对比/index.html">
@@ -21,7 +21,18 @@
 <meta property="og:image" content="https://i.loli.net/2018/04/05/5ac640d495a55.png">
 <meta property="og:image" content="https://i.loli.net/2018/04/05/5ac640e2cf6e5.png">
 <meta property="og:image" content="http://wyf0912.github.io/20180405221246053/20180406025855699.png">
-<meta property="og:updated_time" content="2018-04-06T07:08:36.217Z">
+<meta property="og:image" content="http://wyf0912.github.io/20180405221246053/20180406031646756.png">
+<meta property="og:image" content="http://wyf0912.github.io/20180405221246053/20180406092006785.png">
+<meta property="og:image" content="http://wyf0912.github.io/20180405221246053/20180406092113160.png">
+<meta property="og:image" content="http://wyf0912.github.io/20180405221246053/20180406095339450.png">
+<meta property="og:image" content="http://wyf0912.github.io/20180405221246053/20180406100450821.png">
+<meta property="og:image" content="http://wyf0912.github.io/20180407133157402/20180407020833164.png">
+<meta property="og:image" content="http://wyf0912.github.io/20180407133157402/20180407022827034.png">
+<meta property="og:image" content="http://wyf0912.github.io/20180407133157402/20180407033752561.png">
+<meta property="og:image" content="http://wyf0912.github.io/20180407133157402/20180407034947882.png">
+<meta property="og:image" content="http://wyf0912.github.io/20180407133157402/20180407044211013.png">
+<meta property="og:image" content="http://wyf0912.github.io/20180407133157402/20180407052050251.png">
+<meta property="og:updated_time" content="2018-04-07T09:45:19.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YOLO v1-v3的总结对比">
 <meta name="twitter:description" content="前两周才看完Yolo v1,Yolo v2,导师告诉我还有v3,果然看论文的随度还是赶不上别人发论文的速度。水平有限很多理解有误或不深入。 YOLO v1YOLO v1的论文是这个。 简单介绍作者提出了一种新的物体检测方法YOLO。YOLO之前的物体检测方法主要是通过region proposal产生大量的可能包含待检测物体的 potential bounding box，再用分类器去判断每个 b">
@@ -257,6 +268,44 @@
 <p>召回率的提升还是蛮大的..</p>
 <h3 id="Dimension-Clusters（维度聚类）"><a href="#Dimension-Clusters（维度聚类）" class="headerlink" title="Dimension Clusters（维度聚类）"></a>Dimension Clusters（维度聚类）</h3><p>作者使用K-means对Bouding box进行聚类。</p>
 <p>传统的聚类方法是用欧式距离，这样大的box往往有更大的error，所以作者采用1-IOU作为聚类的距离。这样就和尺度无关了。<br><img src="/20180405221246053/20180406025855699.png" alt=""><br>上图是聚类的结果，作者在recall和模型复杂度之间做了一个平衡，选择k=5，达到了和faster-rcnn 9种boundning box相当的召回率。</p>
+<h3 id="Direct-location-prediction"><a href="#Direct-location-prediction" class="headerlink" title="Direct location prediction"></a>Direct location prediction</h3><p>在使用anchor box时作者遇到了模型不稳定，问题绝大多数出在位置的预测上(好奇…怎么判断模型不稳定的原因..)<br>RPN网络中，位置预测的公式如下：<br>$$<br>x=(t_x<em>w_a)-x_a,<br>y=(t_y</em>h_a)-y_a<br>$$<br>期中$x_a$和$y_a$是anchor box的位置。因为这里面$t_x$和$t_y$是没有约束的，所以任何一个anchor box可以预测任意位置的object。</p>
+<p>所以作者采用了YOLO-v1中的思想，一个grid只负责预测附近的格子</p>
+<p><img src="/20180405221246053/20180406031646756.png" alt=""></p>
+<p>如上图所示，$t_x,t_y,t_w,t_h,t_0$均为预测项,$P_r(object)*IOU(b, object)=\sigma (t_o) $<br>。(预测长宽缩放为什么用指数函数还不是特别清楚)</p>
+<h3 id="Fine-Grained-Features（细粒化特征）"><a href="#Fine-Grained-Features（细粒化特征）" class="headerlink" title="Fine-Grained Features（细粒化特征）"></a>Fine-Grained Features（细粒化特征）</h3><p>为了获得细粒化特征，作者将26 × 26 × 512 feature map转化成了13 × 13 × 2048的featuremap，然后拼接在了原来13 × 13的feature map后面，得到了1%的performace increase.</p>
+<h3 id="Multi-Scale-Training"><a href="#Multi-Scale-Training" class="headerlink" title="Multi-Scale Training"></a>Multi-Scale Training</h3><p>因为模型仅仅使用卷积和池化，所以可以随意修改尺寸。作者训练的多种尺寸的网络。包含{320,352，…608}。尺寸越大正确率越高，速度越慢。所以可以根据需求选择分辨率<br><img src="/20180405221246053/20180406092006785.png" alt=""><br><img src="/20180405221246053/20180406092113160.png" alt=""><br>这个是测试结果，五个蓝色点代表不同分辨率的结果，显示效果和速率还是不错的。</p>
+<h3 id="Further-Experiments"><a href="#Further-Experiments" class="headerlink" title="Further Experiments"></a>Further Experiments</h3><p><img src="/20180405221246053/20180406095339450.png" alt=""><br>之前大部分的检测框架基于VGG-16，一个强大，准确的网络。但是运算量太大。所以作者构建了新的框架darknet-19。</p>
+<h4 id="Darknet-19"><a href="#Darknet-19" class="headerlink" title="Darknet-19"></a>Darknet-19</h4><p><img src="/20180405221246053/20180406100450821.png" alt=""><br>之所以叫darknet-19可能因为有19个卷积层和5个最大池化层。</p>
+<h2 id="Stronger"><a href="#Stronger" class="headerlink" title="Stronger"></a>Stronger</h2><p>作者提出了一种联合训练detection和classification的机理。训练detcetion的时候计算全部的loss，训练到classification的时候仅仅计算分类部分的误差。</p>
+<p>这个方法有一些挑战。detection的数据集只有一些常见的物体，而classification的训练集范围更宽，例如狗的种类就超过了100种。</p>
+<p>绝大多数的方法使用softmax层，考虑了所有的种类。然而这是假设这些类别是互斥的</p>
+<h3 id="Hierarchical-classification（分层分类）"><a href="#Hierarchical-classification（分层分类）" class="headerlink" title="Hierarchical classification（分层分类）"></a>Hierarchical classification（分层分类）</h3><p>ImageNet的标签是来自WordNet的。WordNet的结构是一个有向图而不是树（因为树中每个节点只有一个双亲）。作者将问题简化成从ImageNet中构建一个分层的树。</p>
+<p><img src="/20180407133157402/20180407020833164.png" alt=""></p>
+<p>这是一个计算absolute probability的例子，使用条件概率的公式。</p>
+<p>作者增加了中间节点，使其从1000类到1369类。为了计算条件概率，模型预测了1369个值，并且计算相同概念下义词的softmax。在和之前训练参数相同的条件下，获得了71.9%的top-1准确度和90.4%的top-5准确度。</p>
+<p>这种方式有好处的，例如当神经网络不能很好确定狗的品种的时候，其仍然可以预测是狗。</p>
+<p>前面的方法对detection也是有用的。利用YOLOv2’s objectness predictor得到存在物体的概率，用detector预测box和树中每个节点的值。</p>
+<p><img src="/20180407133157402/20180407022827034.png" alt=""></p>
+<p>上图是两种softmax的对比。一个是大部分ImageNet将所有的类用一个softmax进行预测。WordTree是使用多个softmax分类器，类似广度优先遍历那样。</p>
+<p>由于两个训练集之间数据量不均衡，所以作者才用了oversampling。使比例大约4:1.</p>
+<p><img src="/20180407133157402/20180407033752561.png" alt=""><br>(例如训练飞机的时候coco的数据集到蓝色的飞机这层，损失应该是仅仅到蓝色的飞机+bounding box的误差，然后训练ImageNet上的训练集的时候，相当于是从根节点到红色叶子节点的loss)</p>
+<p><img src="/20180407133157402/20180407034947882.png" alt=""></p>
+<p>这个图是ImageNet上效果最好和最差的类别。可以发现动物类别的效果还是不错的，因为COCO里面有类别。</p>
+<h1 id="YOLO-v3"><a href="#YOLO-v3" class="headerlink" title="YOLO v3"></a>YOLO v3</h1><p><a href="https://pjreddie.com/media/files/papers/YOLOv3.pdf" target="_blank" rel="noopener">YOLOv3: An Incremental Improvement </a></p>
+<p>YOLO-v3的变化不是特别多，通过优化提高了速度，mAP变化不是特别大</p>
+<p>在320×320的分辨率下，YOLOv3运行22.2ms，28.2 mAP，像SSD一样准确，但速度快三倍。 当使用0.5 IOU mAP检测指标时，YOLOv3是相当不错的。 在Titan X上，它在51 ms内实现了57.9的$AP_{50}$，与RetinaNet在198 ms内的57.5$AP_{50}$相当，性能相似但速度快3.8倍。</p>
+<h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><p>作者使用了一些其他人的好的方法，训练了一个更好的分类网络。<br><img src="/20180407133157402/20180407044211013.png" alt=""></p>
+<h2 id="Bouding-Box预测"><a href="#Bouding-Box预测" class="headerlink" title="Bouding Box预测"></a>Bouding Box预测</h2><p>YOLO v3使用logistic回归来预测objectness score。每一个ground truth只匹配一个bounding box。如果一个bounding box不属于一个ground truth，那么这个bounding box的误差就仅仅含有objectness的loss,而不含有坐标和类别loss。</p>
+<h2 id="class-prediction"><a href="#class-prediction" class="headerlink" title="class prediction"></a>class prediction</h2><p>类别预测由原来的softmax改为每一类一个logistic，这样可以应对多分类问题</p>
+<h2 id="多尺度预测"><a href="#多尺度预测" class="headerlink" title="多尺度预测"></a>多尺度预测</h2><p>YOLOv3 predicts boxes at 3 different scales. Our system extracts features from those scales using a similar concept to feature pyramid networks [6]。金字塔网络…不是很理解</p>
+<p>[6] T.-Y. Lin, P. Dollar, R. Girshick, K. He, B. Hariharan, and<br>S. Belongie. Feature pyramid networks for object detection.<br>In Proceedings of the IEEE Conference on Computer Vision<br>and Pattern Recognition, pages 2117–2125, 2017. 2</p>
+<p>参考文献是这篇，今后再补充。</p>
+<h2 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h2><p><img src="/20180407133157402/20180407052050251.png" alt=""><br>（Residual是借鉴残差网络嘛…不是很懂QUQ…一会去看下残差网络)</p>
+<h2 id="作者尝试但没有起作用的"><a href="#作者尝试但没有起作用的" class="headerlink" title="作者尝试但没有起作用的"></a>作者尝试但没有起作用的</h2><p><strong>Anchor box x，y offset predictions。</strong>我们尝试使用正常anchor box预测机制，这里你使用线性激活来预测x，y offset作为box的宽度或高度的倍数。我们发现这种方法降低了模型的稳定性，并且效果不佳。</p>
+<p><strong>Linear x，y predictions instead of logistic。</strong>我们尝试使用线性激活来直接预测x，y offeset 而不是逻辑激活。这导致mAP下降了几个点。</p>
+<p><strong>Focal loss。</strong>我们尝试使用focal loss。它使得mAp降低了2个点。YOLOv3对focal loss解决的问题可能已经很强大，因为它具有单独的对象预测和条件类别预测。 因此，对于大多数例子来说，类别预测没有损失？ 或者其他的东西？ 我们并不完全确定。</p>
+<p><strong>Dual IOU thresholds and truth assignment 。</strong> Faster R-CNN在训练期间使用两个IOU阈值。如果一个预测与ground truth重叠达到0.7，它就像是一个正样本，如果达到0.3-0.7，它被忽略，如果小于0.3，这是一个负样本的例子。我们尝试了类似的策略，但无法取得好成绩。</p>
+<p>   我们非常喜欢我们目前的表述，似乎至少在局部最佳状态。有些技术可能最终会产生好的结果，也许他们只是需要一些调整来稳定训练。</p>
 
       
 
@@ -291,7 +340,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cv， YOLO</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">cv</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YOLO</a>
         		</li>
       		
 		</ul>
@@ -360,6 +413,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/04/06/v1-v3的总结对比/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2018/03/27/YOLO学习笔记和代码解读/" id="article-nav-older" class="article-nav-link-wrap">
