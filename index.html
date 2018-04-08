@@ -142,221 +142,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-v1-v3的总结对比" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!DOCTYPE html>
-    <html>
-    <head>
-        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-        <style>
-/*--------------------------------------------------------------------------------------------- * Copyright (c) Microsoft Corporation. All rights reserved. * Licensed under the MIT License. See License.txt in the project root for license information. *--------------------------------------------------------------------------------------------*/ body { font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback"; font-size: 14px; padding: 0 12px; line-height: 22px; word-wrap: break-word; } body.scrollBeyondLastLine { margin-bottom: calc(100vh - 22px); } body.showEditorSelection .code-line { position: relative; } body.showEditorSelection .code-active-line:before, body.showEditorSelection .code-line:hover:before { content: ""; display: block; position: absolute; top: 0; left: -12px; height: 100%; } body.showEditorSelection li.code-active-line:before, body.showEditorSelection li.code-line:hover:before { left: -30px; } .vscode-light.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(0, 0, 0, 0.15); } .vscode-light.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(0, 0, 0, 0.40); } .vscode-dark.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 255, 255, 0.4); } .vscode-dark.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 255, 255, 0.60); } .vscode-high-contrast.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 160, 0, 0.7); } .vscode-high-contrast.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 160, 0, 1); } img { max-width: 100%; max-height: 100%; } a { color: #4080D0; text-decoration: none; } a:focus, input:focus, select:focus, textarea:focus { outline: 1px solid -webkit-focus-ring-color; outline-offset: -1px; } hr { border: 0; height: 2px; border-bottom: 2px solid; } h1 { padding-bottom: 0.3em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; } h1, h2, h3 { font-weight: normal; } h1 code, h2 code, h3 code, h4 code, h5 code, h6 code { font-size: inherit; line-height: auto; } a:hover { color: #4080D0; text-decoration: underline; } table { border-collapse: collapse; } table > thead > tr > th { text-align: left; border-bottom: 1px solid; } table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table > tbody > tr > td { padding: 5px 10px; } table > tbody > tr + tr > td { border-top: 1px solid; } blockquote { margin: 0 7px 0 5px; padding: 0 16px 0 10px; border-left: 5px solid; } code { font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback"; font-size: 14px; line-height: 19px; } body.wordWrap pre { white-space: pre-wrap; } .mac code { font-size: 12px; line-height: 18px; } code > div { padding: 16px; border-radius: 3px; overflow: auto; } /** Theming */ .vscode-light { color: rgb(30, 30, 30); } .vscode-dark { color: #DDD; } .vscode-high-contrast { color: white; } .vscode-light code { color: #A31515; } .vscode-dark code { color: #D7BA7D; } .vscode-light code > div { background-color: rgba(220, 220, 220, 0.4); } .vscode-dark code > div { background-color: rgba(10, 10, 10, 0.4); } .vscode-high-contrast code > div { background-color: rgb(0, 0, 0); } .vscode-high-contrast h1 { border-color: rgb(0, 0, 0); } .vscode-light table > thead > tr > th { border-color: rgba(0, 0, 0, 0.69); } .vscode-dark table > thead > tr > th { border-color: rgba(255, 255, 255, 0.69); } .vscode-light h1, .vscode-light hr, .vscode-light table > tbody > tr + tr > td { border-color: rgba(0, 0, 0, 0.18); } .vscode-dark h1, .vscode-dark hr, .vscode-dark table > tbody > tr + tr > td { border-color: rgba(255, 255, 255, 0.18); } .vscode-light blockquote, .vscode-dark blockquote { background: rgba(127, 127, 127, 0.1); border-color: rgba(0, 122, 204, 0.5); } .vscode-high-contrast blockquote { background: transparent; border-color: #fff; }
-</style>
-<style>
-/* Tomorrow Theme */ /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */ /* Original theme - https://github.com/chriskempson/tomorrow-theme */ /* Tomorrow Comment */ .hljs-comment, .hljs-quote { color: #8e908c; } /* Tomorrow Red */ .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-regexp, .hljs-deletion { color: #c82829; } /* Tomorrow Orange */ .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-type, .hljs-params, .hljs-meta, .hljs-link { color: #f5871f; } /* Tomorrow Yellow */ .hljs-attribute { color: #eab700; } /* Tomorrow Green */ .hljs-string, .hljs-symbol, .hljs-bullet, .hljs-addition { color: #718c00; } /* Tomorrow Blue */ .hljs-title, .hljs-section { color: #4271ae; } /* Tomorrow Purple */ .hljs-keyword, .hljs-selector-tag { color: #8959a8; } .hljs { display: block; overflow-x: auto; color: #4d4d4c; padding: 0.5em; } .hljs-emphasis { font-style: italic; } .hljs-strong { font-weight: bold; }
-</style>
-<style>
-ul.contains-task-list { padding-left: 0; } ul ul.contains-task-list { padding-left: 40px; } .task-list-item { list-style-type: none; } .task-list-item-checkbox { vertical-align: middle; }
-</style>
-        <style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
-    </head>
-    <body>
-        <hr>
-<h2 id="title-yolo-v1-v3%E7%9A%84%E6%80%BB%E7%BB%93%E5%AF%B9%E6%AF%94date-2018-04-04-114517tags-cv-yolo">title: YOLO v1-v3的总结对比
-date: 2018-04-04 11:45:17
-tags: [cv, YOLO]</h2>
-<p>前两周才看完Yolo v1,Yolo v2,导师告诉我还有v3,果然看论文的随度还是赶不上别人发论文的速度。
-水平有限很多理解有误或不深入。</p>
-<h1 id="yolo-v1">YOLO v1</h1>
-<p><a href="https://arxiv.org/abs/1506.02640" target="_blank" rel="noopener">YOLO v1</a>的论文是这个。</p>
-<h2 id="%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D">简单介绍</h2>
-<p>作者提出了一种新的物体检测方法YOLO。YOLO之前的物体检测方法主要是通过region proposal产生大量的可能包含待检测物体的 potential bounding box，再用分类器去判断每个 bounding box里是否包含有物体，以及物体所属类别的 probability或者 confidence，如R-CNN,Fast-R-CNN,Faster-R-CNN等。</p>
-<p>YOLO不同于这些物体检测方法，它将物体检测任务当做一个regression问题来处理，使用一个神经网络，直接从一整张图像来预测出bounding box 的坐标、box中包含物体的置信度和物体的probabilities。因为YOLO的物体检测流程是在一个神经网络里完成的，所以可以<em>end to end</em>来优化物体检测性能。</p>
-<p>先介绍写YOLO v1的特点：</p>
-<ul>
-<li>YOLO相对于之前的目标检测方法很快
-<ul>
-<li>因为将目标检测作为一个回归的问题。在基础版本TITAN X上可以达到45fps，更快的版本可以达到150fps</li>
-<li>与其他实时目标检测准确度更高，达到其他实时目标检测精度的两倍以上。</li>
-</ul>
-</li>
-<li>因为YOLO v1卷积层后面是全连接层。和之前滑动窗口方法的目标检测相比，因为后面是全连接层，可以整合整张图片的信息，背景识别错误率仅为Fast RCNN的一半。</li>
-<li>能够学到更抽象的特征，遇到不同domain的时候更不容易失效。</li>
-</ul>
-<h2 id="%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84">网络结构</h2>
-<p>YOLO是一个端到端end-to-end的神经网络。作者将输入的图片分成$S\times S$ 个grids。物体的中心落入哪个格子，哪个grid就负责预测该物体的种类，大小，和位置与格子中心的偏移量。也就是说每个grid的box包含了五个预测值x,y,w,h和confidence</p>
-<ul>
-<li>x.y是相对格子中心的，w,h是相对于整个图像的。</li>
-<li>confidence代表预测框和真实框的IOU</li>
-<li>一个grid产生B个BOX</li>
-</ul>
-<p>每个grid还包含物体种类信息。$Pr(Class_i|Object)$
-<img src="https://i.loli.net/2018/04/05/5ac640db90a7e.png" alt="">
-具体的网络结构如下图
-<img src="https://i.loli.net/2018/04/05/5ac640da38f45.png" alt="The Architecture">
-YOLO网络前部分借鉴了GoogLeNet,其有24个卷积层，4个最大池化，后面跟两个全连接。
-YOLO没有使用inception model而是简化在每个3*3卷积后跟一个1*1卷积。</p>
-<h2 id="%E8%AE%AD%E7%BB%83">训练</h2>
-<h3 id="%E9%A2%84%E8%AE%AD%E7%BB%83">预训练</h3>
-<p>利用ImageNet的1000分类数据集进行预训练。（预训练的时候图像分辨率是224*224</p>
-<p>使用前20个卷积层（为什么不用24个...)后跟一个平均池化层和一个全连接层。作者训练了一周，top-5 accuracy 在 ImageNet 2012 validation 达到了88%。为了得到细粒化信息，将分辨率增加到了448*448。</p>
-<p>全连接层输出每类的可能和box的坐标，坐标和box的值都归一到了0-1。</p>
-<p>构造损失函数的时候，增加了影响的系数，使用平方和。B个box选取置信度最高的一个。
-<img src="https://i.loli.net/2018/04/05/5ac640d495a55.png" alt="">
-（犯懒了 orz 直接贴损失函数公式了...
-这个损失函数看起来有点长，其实分别为以下几项：</p>
-<ul>
-<li>第一项：预测位置的误差，其中求和后面那个符号代表第i个网格中的第j个box是否负责这个object</li>
-<li>第二项：bounding box尺寸的误差：使用根号是为了较小不同大小bounding box带来较大的损失差别</li>
-<li>第三项：含有object的box的分类误差</li>
-<li>第四项：不含object的box分类误差（第三项和第四项之所以分开是因为大多数grid是么醇厚object,如果损失不加上权重的话会导致训练效果不好。</li>
-<li>第五项：置信度的loss，也就是判断是否有物体的中心落在某个格子。</li>
-</ul>
-<h3 id="%E8%AE%AD%E7%BB%83%E7%BB%86%E8%8A%82">训练细节</h3>
-<ul>
-<li>正如损失函数写的，只有该bounding box负责该物体的时候，才会产生loss</li>
-<li>a batch size of 64, a momentum of 0.9 and a decay of 0.0005.</li>
-<li>使用了dropout和广泛的数据扩增
-<ul>
-<li>drop的概率0.5防止层间的协同调整...(好吧..dropout层起作用的原理一直没有很明白</li>
-<li>数据扩增和缩放，曝光和饱和度的调整</li>
-</ul>
-</li>
-</ul>
-<h2 id="%E9%A2%84%E6%B5%8B">预测</h2>
-<p>预测就是单个网络简单的前向传播。然后有的物体可能在多个box中，所以使用了非极大值抑制。但没有像R-CNN和DPM对非极大值抑制那么依赖，其提升了2-3%的mAP。</p>
-<h2 id="%E8%AE%AD%E7%BB%83%E7%BB%93%E6%9E%9C">训练结果</h2>
-<p>部分测试结果如下图
-<img src="https://i.loli.net/2018/04/05/5ac640e2cf6e5.png" alt=""></p>
-<ul>
-<li>首先YOLO-v1对抽象的图像也能比较好适用...不知道对迁移学习有没有帮助。</li>
-<li>2行2列的图中把人当作了飞机...可能这有些因为后面跟的是全链接层，考虑了人在天上的因素...</li>
-</ul>
-<h1 id="yolo-v2">YOLO v2</h1>
-<p>YOLO v2的地址是这个，<a href="https://arxiv.org/abs/1612.08242" target="_blank" rel="noopener">YOLO9000: Better, Faster, Stronger</a>
-YOLO v2相比YOLO v1我感觉有很多的改动，下面进行总结和对比。</p>
-<h2 id="%E6%A8%A1%E5%9E%8B%E7%89%B9%E7%82%B9">模型特点</h2>
-<p>逻辑可能有点混乱...看到什么想到什么写什么...</p>
-<ul>
-<li>better, faster, stronger....我好像说了废话...QUQ</li>
-<li>检测的类别数大大增加 YOLO v1只能检测20类，YOLO-V2能够识别超过9000类。</li>
-<li>准确率提高，可以超过faster-RCNN， Res-Net和SSD，并且速率比他们高</li>
-<li>实现了了目标分类和检测的联合训练..</li>
-</ul>
-<h2 id="better">Better</h2>
-<h3 id="batch-normalization">Batch Normalization</h3>
-<p>CNN在训练过程中网络每层输入的分布一直在改变, 会使训练过程难度加大，但可以通过normalize每层的输入解决这个问题。新的YOLO网络在每一个卷积层后添加batch normalization，通过这一方法，mAP获得了2%的提升。batch normalization 也有助于规范化模型，可以在舍弃dropout优化后依然不会过拟合。</p>
-<p>Batch Normalization在这里<a href="https://arxiv.org/pdf/1502.03167.pdf?" target="_blank" rel="noopener">Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift</a></p>
-<h3 id="high-resolution-classifier">High Resolution Classifier</h3>
-<p>之前的预训练是224*224，作者微调到了448*448。所以作者先用448*448的图片微调分类网络，进行了10epoch,然后再训练detect网络。</p>
-<h3 id="convolutional-with-anchor-boxe">Convolutional With Anchor Boxe</h3>
-<p>YOLO-v2取消了全连接层，而是使用anchor box(应该是借鉴SSD）。去掉了一个池化层来得到更高的分辨率。为了最后得到奇数个位置，确定中心，所以分辨率改为416*416。最后得到一个13*13的feature map。
-使用anchor box的好处是候选框变多了（...orz fast-rnn候选框更多呀...)</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>without anchor boxes</th>
-<th>with ancohor boxes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>mAP</td>
-<td>69.5</td>
-<td>69.2</td>
-</tr>
-<tr>
-<td>recall</td>
-<td>81</td>
-<td>88</td>
-</tr>
-</tbody>
-</table>
-<p>召回率的提升还是蛮大的..</p>
-<h3 id="dimension-clusters%EF%BC%88%E7%BB%B4%E5%BA%A6%E8%81%9A%E7%B1%BB%EF%BC%89">Dimension Clusters（维度聚类）</h3>
-<p>作者使用K-means对Bouding box进行聚类。</p>
-<p>传统的聚类方法是用欧式距离，这样大的box往往有更大的error，所以作者采用1-IOU作为聚类的距离。这样就和尺度无关了。
-<img src="file:///g%3A/Blog/source/_posts/20180405221246053/20180406025855699.png" alt="">
-上图是聚类的结果，作者在recall和模型复杂度之间做了一个平衡，选择k=5，达到了和faster-rcnn 9种boundning box相当的召回率。</p>
-<h3 id="direct-location-prediction">Direct location prediction</h3>
-<p><img src="file:///g%3A/Blog/source/_posts/20180405221246053/20180406031646756.png" alt=""></p>
-<p>在使用anchor box时作者遇到了模型不稳定，问题绝大多数出在位置的预测上(好奇...怎么判断模型不稳定的原因..)
-RPN网络中，位置预测的公式如下：
-$$
-x=(t_x<em>w_a)-x_a,
-y=(t_y</em>h_a)-y_a
-$$
-期中$x_a$和$y_a$是anchor box的位置。因为这里面$t_x$和$t_y$是没有约束的，所以任何一个anchor box可以预测任意位置的object。</p>
-<p>所以作者采用了YOLO-v1中的思想，一个</p>
-
-    </body>
-    </html>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/06/v1-v3的总结对比/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-v1-v3的总结对比" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-YOLO-v1-v3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/04/v1-v3的总结对比/">YOLO v1-v3的总结对比</a>
+      <a class="article-title" href="/2018/04/04/YOLO-v1-v3/">YOLO YOLO-v1-v3</a>
     </h1>
   
 
         
-        <a href="/2018/04/04/v1-v3的总结对比/" class="archive-article-date">
+        <a href="/2018/04/04/YOLO-v1-v3/" class="archive-article-date">
   	<time datetime="2018-04-04T03:45:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
 </a>
         
@@ -387,11 +185,11 @@ $$
 <li>confidence代表预测框和真实框的IOU</li>
 <li>一个grid产生B个BOX</li>
 </ul>
-<p>每个grid还包含物体种类信息。$Pr(Class_i|Object)$<br><img src="https://i.loli.net/2018/04/05/5ac640db90a7e.png" alt=""><br>具体的网络结构如下图<br><img src="https://i.loli.net/2018/04/05/5ac640da38f45.png" alt="The Architecture"><br>YOLO网络前部分借鉴了GoogLeNet,其有24个卷积层，4个最大池化，后面跟两个全连接。<br>YOLO没有使用inception model而是简化在每个3*3卷积后跟一个1*1卷积。</p>
+<p>每个grid还包含物体种类信息。$Pr(Class_i|Object)$<br><img src="/YOLO-v1-v3/20180408015244320.png" alt=""><br>具体的网络结构如下图<br>![The Architecture]<br><img src="/YOLO-v1-v3/20180408015314619.png" alt=""><br>YOLO网络前部分借鉴了GoogLeNet,其有24个卷积层，4个最大池化，后面跟两个全连接。<br>YOLO没有使用inception model而是简化在每个3*3卷积后跟一个1*1卷积。</p>
 <h2 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h2><h3 id="预训练"><a href="#预训练" class="headerlink" title="预训练"></a>预训练</h3><p>利用ImageNet的1000分类数据集进行预训练。（预训练的时候图像分辨率是224*224</p>
 <p>使用前20个卷积层（为什么不用24个…)后跟一个平均池化层和一个全连接层。作者训练了一周，top-5 accuracy 在 ImageNet 2012 validation 达到了88%。为了得到细粒化信息，将分辨率增加到了448*448。</p>
 <p>全连接层输出每类的可能和box的坐标，坐标和box的值都归一到了0-1。</p>
-<p>构造损失函数的时候，增加了影响的系数，使用平方和。B个box选取置信度最高的一个。<br><img src="https://i.loli.net/2018/04/05/5ac640d495a55.png" alt=""><br>（犯懒了 orz 直接贴损失函数公式了…<br>这个损失函数看起来有点长，其实分别为以下几项：</p>
+<p>构造损失函数的时候，增加了影响的系数，使用平方和。B个box选取置信度最高的一个。<br><img src="/YOLO-v1-v3/20180408015347279.png" alt=""><br>（犯懒了 orz 直接贴损失函数公式了…<br>这个损失函数看起来有点长，其实分别为以下几项：</p>
 <ul>
 <li>第一项：预测位置的误差，其中求和后面那个符号代表第i个网格中的第j个box是否负责这个object</li>
 <li>第二项：bounding box尺寸的误差：使用根号是为了较小不同大小bounding box带来较大的损失差别</li>
@@ -409,7 +207,7 @@ $$
 </li>
 </ul>
 <h2 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h2><p>预测就是单个网络简单的前向传播。然后有的物体可能在多个box中，所以使用了非极大值抑制。但没有像R-CNN和DPM对非极大值抑制那么依赖，其提升了2-3%的mAP。</p>
-<h2 id="训练结果"><a href="#训练结果" class="headerlink" title="训练结果"></a>训练结果</h2><p>部分测试结果如下图<br><img src="https://i.loli.net/2018/04/05/5ac640e2cf6e5.png" alt=""></p>
+<h2 id="训练结果"><a href="#训练结果" class="headerlink" title="训练结果"></a>训练结果</h2><p>部分测试结果如下图<br><img src="/YOLO-v1-v3/20180408015408788.png" alt=""></p>
 <ul>
 <li>首先YOLO-v1对抽象的图像也能比较好适用…不知道对迁移学习有没有帮助。</li>
 <li>2行2列的图中把人当作了飞机…可能这有些因为后面跟的是全链接层，考虑了人在天上的因素…</li>
@@ -449,40 +247,43 @@ $$
 </table>
 <p>召回率的提升还是蛮大的..</p>
 <h3 id="Dimension-Clusters（维度聚类）"><a href="#Dimension-Clusters（维度聚类）" class="headerlink" title="Dimension Clusters（维度聚类）"></a>Dimension Clusters（维度聚类）</h3><p>作者使用K-means对Bouding box进行聚类。</p>
-<p>传统的聚类方法是用欧式距离，这样大的box往往有更大的error，所以作者采用1-IOU作为聚类的距离。这样就和尺度无关了。<br><img src="/20180405221246053/20180406025855699.png" alt=""><br>上图是聚类的结果，作者在recall和模型复杂度之间做了一个平衡，选择k=5，达到了和faster-rcnn 9种boundning box相当的召回率。</p>
+<p>传统的聚类方法是用欧式距离，这样大的box往往有更大的error，所以作者采用1-IOU作为聚类的距离。这样就和尺度无关了。<br><img src="/YOLO-v1-v3/20180408015450021.png" alt=""><br>上图是聚类的结果，作者在recall和模型复杂度之间做了一个平衡，选择k=5，达到了和faster-rcnn 9种boundning box相当的召回率。</p>
 <h3 id="Direct-location-prediction"><a href="#Direct-location-prediction" class="headerlink" title="Direct location prediction"></a>Direct location prediction</h3><p>在使用anchor box时作者遇到了模型不稳定，问题绝大多数出在位置的预测上(好奇…怎么判断模型不稳定的原因..)<br>RPN网络中，位置预测的公式如下：<br>$$<br>x=(t_x<em>w_a)-x_a,<br>y=(t_y</em>h_a)-y_a<br>$$<br>期中$x_a$和$y_a$是anchor box的位置。因为这里面$t_x$和$t_y$是没有约束的，所以任何一个anchor box可以预测任意位置的object。</p>
 <p>所以作者采用了YOLO-v1中的思想，一个grid只负责预测附近的格子</p>
-<p><img src="/20180405221246053/20180406031646756.png" alt=""></p>
+<p><img src="/YOLO-v1-v3/20180408015513579.png" alt=""></p>
 <p>如上图所示，$t_x,t_y,t_w,t_h,t_0$均为预测项,$P_r(object)*IOU(b, object)=\sigma (t_o) $<br>。(预测长宽缩放为什么用指数函数还不是特别清楚)</p>
 <h3 id="Fine-Grained-Features（细粒化特征）"><a href="#Fine-Grained-Features（细粒化特征）" class="headerlink" title="Fine-Grained Features（细粒化特征）"></a>Fine-Grained Features（细粒化特征）</h3><p>为了获得细粒化特征，作者将26 × 26 × 512 feature map转化成了13 × 13 × 2048的featuremap，然后拼接在了原来13 × 13的feature map后面，得到了1%的performace increase.</p>
-<h3 id="Multi-Scale-Training"><a href="#Multi-Scale-Training" class="headerlink" title="Multi-Scale Training"></a>Multi-Scale Training</h3><p>因为模型仅仅使用卷积和池化，所以可以随意修改尺寸。作者训练的多种尺寸的网络。包含{320,352，…608}。尺寸越大正确率越高，速度越慢。所以可以根据需求选择分辨率<br><img src="/20180405221246053/20180406092006785.png" alt=""><br><img src="/20180405221246053/20180406092113160.png" alt=""><br>这个是测试结果，五个蓝色点代表不同分辨率的结果，显示效果和速率还是不错的。</p>
-<h3 id="Further-Experiments"><a href="#Further-Experiments" class="headerlink" title="Further Experiments"></a>Further Experiments</h3><p><img src="/20180405221246053/20180406095339450.png" alt=""><br>之前大部分的检测框架基于VGG-16，一个强大，准确的网络。但是运算量太大。所以作者构建了新的框架darknet-19。</p>
-<h4 id="Darknet-19"><a href="#Darknet-19" class="headerlink" title="Darknet-19"></a>Darknet-19</h4><p><img src="/20180405221246053/20180406100450821.png" alt=""><br>之所以叫darknet-19可能因为有19个卷积层和5个最大池化层。</p>
+<h3 id="Multi-Scale-Training"><a href="#Multi-Scale-Training" class="headerlink" title="Multi-Scale Training"></a>Multi-Scale Training</h3><p>因为模型仅仅使用卷积和池化，所以可以随意修改尺寸。作者训练的多种尺寸的网络。包含{320,352，…608}。尺寸越大正确率越高，速度越慢。所以可以根据需求选择分辨率<br><img src="/YOLO-v1-v3/20180408015546123.png" alt=""><br>这个是测试结果，五个蓝色点代表不同分辨率的结果，显示效果和速率还是不错的。</p>
+<h3 id="Further-Experiments"><a href="#Further-Experiments" class="headerlink" title="Further Experiments"></a>Further Experiments</h3><p><img src="/YOLO-v1-v3/20180408015613636.png" alt=""><br>之前大部分的检测框架基于VGG-16，一个强大，准确的网络。但是运算量太大。所以作者构建了新的框架darknet-19。</p>
+<h4 id="Darknet-19"><a href="#Darknet-19" class="headerlink" title="Darknet-19"></a>Darknet-19</h4><p><img src="/YOLO-v1-v3/20180408015626782.png" alt=""><br>之所以叫darknet-19可能因为有19个卷积层和5个最大池化层。</p>
 <h2 id="Stronger"><a href="#Stronger" class="headerlink" title="Stronger"></a>Stronger</h2><p>作者提出了一种联合训练detection和classification的机理。训练detcetion的时候计算全部的loss，训练到classification的时候仅仅计算分类部分的误差。</p>
 <p>这个方法有一些挑战。detection的数据集只有一些常见的物体，而classification的训练集范围更宽，例如狗的种类就超过了100种。</p>
 <p>绝大多数的方法使用softmax层，考虑了所有的种类。然而这是假设这些类别是互斥的</p>
 <h3 id="Hierarchical-classification（分层分类）"><a href="#Hierarchical-classification（分层分类）" class="headerlink" title="Hierarchical classification（分层分类）"></a>Hierarchical classification（分层分类）</h3><p>ImageNet的标签是来自WordNet的。WordNet的结构是一个有向图而不是树（因为树中每个节点只有一个双亲）。作者将问题简化成从ImageNet中构建一个分层的树。</p>
-<p><img src="https://i.loli.net/2018/04/07/5ac893492d0d3.png" alt=""></p>
+<p><img src="/YOLO-v1-v3/20180408015648937.png" alt=""></p>
 <p>这是一个计算absolute probability的例子，使用条件概率的公式。</p>
 <p>作者增加了中间节点，使其从1000类到1369类。为了计算条件概率，模型预测了1369个值，并且计算相同概念下义词的softmax。在和之前训练参数相同的条件下，获得了71.9%的top-1准确度和90.4%的top-5准确度。</p>
 <p>这种方式有好处的，例如当神经网络不能很好确定狗的品种的时候，其仍然可以预测是狗。</p>
 <p>前面的方法对detection也是有用的。利用YOLOv2’s objectness predictor得到存在物体的概率，用detector预测box和树中每个节点的值。</p>
-<p><img src="/20180407133157402/20180407022827034.png" alt=""></p>
+<p><img src="/YOLO-v1-v3/20180408015723962.png" alt=""></p>
 <p>上图是两种softmax的对比。一个是大部分ImageNet将所有的类用一个softmax进行预测。WordTree是使用多个softmax分类器，类似广度优先遍历那样。</p>
 <p>由于两个训练集之间数据量不均衡，所以作者才用了oversampling。使比例大约4:1.</p>
-<p><img src="https://i.loli.net/2018/04/07/5ac8934b214da.png" alt=""><br>(例如训练飞机的时候coco的数据集到蓝色的飞机这层，损失应该是仅仅到蓝色的飞机+bounding box的误差，然后训练ImageNet上的训练集的时候，相当于是从根节点到红色叶子节点的loss)</p>
-<p><img src="https://i.loli.net/2018/04/07/5ac8934be8760.png" alt=""></p>
-<p>这个图是ImageNet上效果最好和最差的类别。可以发现动物类别的效果还是不错的，因为COCO里面有类别。</p>
+<p><img src="/YOLO-v1-v3/20180408015742976.png" alt=""></p>
+<p>(例如训练飞机的时候coco的数据集到蓝色的飞机这层，损失应该是仅仅到蓝色的飞机+bounding box的误差，然后训练ImageNet上的训练集的时候，相当于是从根节点到红色叶子节点的loss)</p>
+<pre><code>![](https://i.loli.net/2018/04/07/5ac8934be8760.png)
+</code></pre><p>这个图是ImageNet上效果最好和最差的类别。可以发现动物类别的效果还是不错的，因为COCO里面有类别。</p>
 <h1 id="YOLO-v3"><a href="#YOLO-v3" class="headerlink" title="YOLO v3"></a>YOLO v3</h1><p><a href="https://pjreddie.com/media/files/papers/YOLOv3.pdf" target="_blank" rel="noopener">YOLOv3: An Incremental Improvement </a></p>
 <p>YOLO-v3的变化不是特别多，通过优化提高了速度，mAP变化不是特别大</p>
 <p>在320×320的分辨率下，YOLOv3运行22.2ms，28.2 mAP，像SSD一样准确，但速度快三倍。 当使用0.5 IOU mAP检测指标时，YOLOv3是相当不错的。 在Titan X上，它在51 ms内实现了57.9的$AP_{50}$，与RetinaNet在198 ms内的57.5$AP_{50}$相当，性能相似但速度快3.8倍。</p>
-<h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><p>作者使用了一些其他人的好的方法，训练了一个更好的分类网络。<br><img src="https://i.loli.net/2018/04/07/5ac8934be86d9.png" alt=""></p>
+<h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><p>作者使用了一些其他人的好的方法，训练了一个更好的分类网络。</p>
+<p><img src="/YOLO-v1-v3/20180408015803739.png" alt=""></p>
 <h2 id="Bouding-Box预测"><a href="#Bouding-Box预测" class="headerlink" title="Bouding Box预测"></a>Bouding Box预测</h2><p>YOLO v3使用logistic回归来预测objectness score。每一个ground truth只匹配一个bounding box。如果一个bounding box不属于一个ground truth，那么这个bounding box的误差就仅仅含有objectness的loss,而不含有坐标和类别loss。</p>
 <h2 id="class-prediction"><a href="#class-prediction" class="headerlink" title="class prediction"></a>class prediction</h2><p>类别预测由原来的softmax改为每一类一个logistic，这样可以应对多分类问题</p>
 <h2 id="多尺度预测"><a href="#多尺度预测" class="headerlink" title="多尺度预测"></a>多尺度预测</h2><p>YOLOv3 predicts boxes at 3 different scales. Our system extracts features from those scales using a similar concept to feature pyramid networks [6]。金字塔网络…不是很理解</p>
-<p>[6] T.-Y. Lin, P. Dollar, R. Girshick, K. He, B. Hariharan, and<br>S. Belongie. Feature pyramid networks for object detection.<br>In Proceedings of the IEEE Conference on Computer Vision<br>and Pattern Recognition, pages 2117–2125, 2017. 2</p>
+<p>[6] T.-Y. Lin, P. Dollar, R. Girshick, K. He, B. Hariharan, and S. Belongie. Feature pyramid networks for object detection. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 2117–2125, 2017. 2</p>
 <p>参考文献是这篇，今后再补充。</p>
-<h2 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h2><p><img src="https://i.loli.net/2018/04/07/5ac8934bc785b.png" alt=""><br>（Residual是借鉴残差网络嘛…不是很懂QUQ…一会去看下残差网络)</p>
+<h2 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h2><p><img src="/YOLO-v1-v3/20180408015821864.png" alt=""></p>
+<p>（Residual是借鉴残差网络嘛…不是很懂QUQ…一会去看下残差网络)</p>
 <h2 id="作者尝试但没有起作用的"><a href="#作者尝试但没有起作用的" class="headerlink" title="作者尝试但没有起作用的"></a>作者尝试但没有起作用的</h2><p><strong>Anchor box x，y offset predictions。</strong>我们尝试使用正常anchor box预测机制，这里你使用线性激活来预测x，y offset作为box的宽度或高度的倍数。我们发现这种方法降低了模型的稳定性，并且效果不佳。</p>
 <p><strong>Linear x，y predictions instead of logistic。</strong>我们尝试使用线性激活来直接预测x，y offeset 而不是逻辑激活。这导致mAP下降了几个点。</p>
 <p><strong>Focal loss。</strong>我们尝试使用focal loss。它使得mAp降低了2个点。YOLOv3对focal loss解决的问题可能已经很强大，因为它具有单独的对象预测和条件类别预测。 因此，对于大多数例子来说，类别预测没有损失？ 或者其他的东西？ 我们并不完全确定。</p>
@@ -515,7 +316,7 @@ $$
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/04/v1-v3的总结对比/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/04/YOLO-v1-v3/">展开全文 >></a>
         </p>
       
 
