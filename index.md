@@ -3,10 +3,13 @@
 Advised by: Prof. Lap-Pui Chau and Prof. Alex Kot
 
 ## Education　
-- 2016–2020  University of Electronic Science and Technology of China (UESTC)　　　　　*Computer science and technology*
-- 2020–*now*  Nanyang Technological University 　　　　　　　　　　　　　　　　　　　*Rapid-Rich Object Search Lab (ROSE)*
+- 2016–2020  University of Electronic Science and Technology of China (UESTC) 
+  - Computer science and technology
+- 2020–*now*  Nanyang Technological University
+  - Rapid-Rich Object Search Lab (ROSE) 
 
-## Selected Award
+
+## Selected Awards
 - The National Scholarship 　　　　Top 2% 
 - Tang Lixin Scholarship 　　　　　 Top 0.2% 
 
