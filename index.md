@@ -1,6 +1,6 @@
 # Yufei Wang
-## Ph.D Student
-Advised by: Prof. Lap-Pui Chau and Prof. Alex Kot
+### Ph.D Student
+#### Advised by: Prof. Lap-Pui Chau and Prof. Alex Kot
 
 ## Education　
 - 2016–2020  University of Electronic Science and Technology of China (UESTC) 
