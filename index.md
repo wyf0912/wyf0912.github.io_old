@@ -17,7 +17,7 @@ Research interest: computer vision, robustness of neural networks
 
 ## Preprints and Publications
 - **Yufei Wang**, Haoliang Li, Lap-pui Chau, and Alex C. Kot. "Variational Disentanglement for Domain Generalization" arXiv preprint arXiv:2109.05826.  [Paper](https://arxiv.org/pdf/2109.05826.pdf)
-- **Yufei Wang**, Renjie Wan, Wenhan Yang, Haoliang Li, Lap-pui Chau, and Alex C. Kot. "	Low-Light Image Enhancement with Normalizing Flow" arXiv preprint arXiv:2109.05923.  [Paper](https://arxiv.org/pdf/2109.05923.pdf)
+- **Yufei Wang**, Renjie Wan, Wenhan Yang, Haoliang Li, Lap-pui Chau, and Alex C. Kot. "	Low-Light Image Enhancement with Normalizing Flow" AAAI Conference on Artificial Intelligence (2022).  [Paper](https://arxiv.org/pdf/2109.05923.pdf)
 - **Yufei Wang**, Haoliang Li, Lap-pui Chau, and Alex C. Kot. "Embracing the Dark Knowledge: Domain Generalization Using Regularized Knowledge Distillation" ACM MULTIMEDIA (2021) [Paper](https://arxiv.org/pdf/2107.02629.pdf)
 - **Yufei Wang**, Haoliang Li, and Alex C. Kot. "Heterogeneous domain generalization via domain mixup." ICASSP 2020-2020 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2020. [Paper](https://arxiv.org/pdf/2009.05448.pdf) and [Code](https://github.com/wyf0912/MIXALL)
 - Haoliang Li, **Yufei Wang**, et al. "Domain Generalization for Medical Imaging Classification with Linear-Dependency Regularization." NeurIPS (2020). [Paper](https://arxiv.org/pdf/2009.12829.pdf) and [Code](https://github.com/wyf0912/LDDG)
