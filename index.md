@@ -5,9 +5,9 @@ Research interest: computer vision, robustness of neural networks
 
 [Google Scholar](https://scholar.google.com/citations?user=K339yuAAAAAJ&hl=en)
 ## Education　
-- 2016–2020  University of Electronic Science and Technology of China (UESTC) 
+- 2016–2020,  University of Electronic Science and Technology of China (UESTC) , BEng
   - Computer science and technology
-- 2020–*now*  Nanyang Technological University
+- 2020–*now*,  Nanyang Technological University (NTU), Ph.D Student
   - Rapid-Rich Object Search Lab (ROSE) 
 
 
