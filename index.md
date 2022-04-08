@@ -1,6 +1,6 @@
 # Yufei Wang
 ### Ph.D Student
-#### Advised by: Prof. Lap-Pui Chau and Prof. Alex Kot
+#### Advised by: Prof. Bihan Wen, Prof. Lap-Pui Chau and Prof. Alex Kot
 Research interest: computer vision, robustness of neural networks
 
 [Google Scholar](https://scholar.google.com/citations?user=K339yuAAAAAJ&hl=en)
