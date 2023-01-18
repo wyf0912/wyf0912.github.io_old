@@ -17,7 +17,7 @@ Research interest: computer vision, robustness of neural networks
 - SDSC Dissertation Research Fellowship 2022     S$ 10,000
  
 ## Preprints and Publications
-- Hao Cheng, **Yufei Wang**, Haoliang Li, Alex C. Kot, and Bihan Wen Disentangled Feature Representation for Few-shot Image Classification, **TNNLS 2023**
+- Hao Cheng, **Yufei Wang**, Haoliang Li, Alex C. Kot, and Bihan Wen. "Disentangled Feature Representation for Few-shot Image Classification", **TNNLS 2023**
 - **Yufei Wang**, Haoliang Li, Bihan Wen, Lap-pui Chau, and Alex C. Kot. "Variational Disentanglement for Domain Generalization", Transactions on Machine Learning Research (**TMLR 2022**).  [Paper](https://arxiv.org/pdf/2109.05826.pdf), [Openreview](https://openreview.net/forum?id=fudOtITMIZ)
 - **Yufei Wang**, Renjie Wan, Wenhan Yang, Haoliang Li, Lap-pui Chau, and Alex C. Kot. "	Low-Light Image Enhancement with Normalizing Flow" AAAI Conference on Artificial Intelligence (2022) (**AAAI 2022**) **[Oral]**.  [Paper](https://arxiv.org/pdf/2109.05923.pdf), [Project Page](https://wyf0912.github.io/LLFlow/), and [Code](https://github.com/wyf0912/LLFlow)
 - **Yufei Wang**, Haoliang Li, Lap-pui Chau, and Alex C. Kot. "Embracing the Dark Knowledge: Domain Generalization Using Regularized Knowledge Distillation" ACM MULTIMEDIA (2021)(**ACM MM**) [Paper](https://arxiv.org/pdf/2107.02629.pdf)
