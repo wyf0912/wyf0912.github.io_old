@@ -3,6 +3,8 @@
 #### Advised by: Prof. Bihan Wen, Prof. Lap-Pui Chau and Prof. Alex Kot
 Research interest: computer vision, robustness of neural networks
 
+Email: yufei001@e.ntu.edu.sg
+
 [Google Scholar](https://scholar.google.com/citations?user=jLd1l_sAAAAJ)
 ## Education　
 - 2016–2020,  University of Electronic Science and Technology of China (UESTC) , BEng
