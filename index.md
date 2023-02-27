@@ -19,6 +19,9 @@ Email: yufei001@e.ntu.edu.sg
 - SDSC Dissertation Research Fellowship 2022     S$ 10,000
  
 ## Preprints and Publications
+- **Yufei Wang**, Yi Yu, Wenhan Yang, Lanqing Guo, Lap-Pui Chau, Alex Kot, Bihan Wen, "Raw Image Reconstruction with Learned Compact Metadata", **CVPR 2023**
+- Yi Yu, **Yufei Wang**, Wenhan Yang, Shijian Lu, Yap-peng Tan, Alex Kot "Backdoor Attacks Against Deep Image Compression via Adaptive Frequency Trigger", **CVPR 2023**
+- Lanqing Guo, Chong Wang, Wenhan Yang, Siyu Huang, **Yufei Wang**, Hanspeter Pfister, and Bihan Wen. "ShadowDiffusion: When Degradation Prior Meets Diffusion Model for Shadow Removal", **CVPR 2023**
 - Chenyu Yi, Siyuan Yang, **Yufei Wang**, Haoliang Li, Yap-peng Tan, Alex Kot"Temporal Coherent Test Time Optimization for Robust Video Classification", **ICLR 2023** [Paper](https://openreview.net/forum?id=-t4D61w4zvQ)
 - Hao Cheng, **Yufei Wang**, Haoliang Li, Alex C. Kot, and Bihan Wen. "Disentangled Feature Representation for Few-shot Image Classification", Transactions on Neural Networks and Learning Systems **(TNNLS 2023)**
 - **Yufei Wang**, Haoliang Li, Bihan Wen, Lap-pui Chau, and Alex C. Kot. "Variational Disentanglement for Domain Generalization", Transactions on Machine Learning Research (**TMLR 2022**).  [Paper](https://arxiv.org/pdf/2109.05826.pdf), [Openreview](https://openreview.net/forum?id=fudOtITMIZ)
