@@ -19,6 +19,7 @@ Email: yufei001@e.ntu.edu.sg
 - SDSC Dissertation Research Fellowship 2022     S$ 10,000
  
 ## Preprints and Publications
+- **Yufei Wang**, et. al. , "Beyond Learned Metadata-based Raw Image Reconstruction", **Arxiv** [Paper](https://arxiv.org/pdf/2306.12058.pdf), [Code](https://github.com/wyf0912/R2LCM)
 - **Yufei Wang**, Yi Yu, Wenhan Yang, Lanqing Guo, Lap-Pui Chau, Alex Kot, Bihan Wen, "Raw Image Reconstruction with Learned Compact Metadata", **CVPR 2023** [Paper](https://arxiv.org/pdf/2302.12995.pdf), [Code](https://github.com/wyf0912/R2LCM)
 - Yi Yu, **Yufei Wang**, Wenhan Yang, Shijian Lu, Yap-peng Tan, Alex Kot "Backdoor Attacks Against Deep Image Compression via Adaptive Frequency Trigger", **CVPR 2023**
 - L Guo, C Wang, W Yang, S Huang, **Y Wang**, H Pfister, B Wen. "ShadowDiffusion: When Degradation Prior Meets Diffusion Model for Shadow Removal", **CVPR 2023** [Paper](https://arxiv.org/pdf/2212.04711.pdf)
