@@ -19,7 +19,7 @@ Email: yufei001@e.ntu.edu.sg
 - SDSC Dissertation Research Fellowship 2022     S$ 10,000
  
 ## Preprints and Publications
-- **Yufei Wang**, Yi Yu, Wenhan Yang, Lanqing Guo, Lap-Pui Chau, Alex Kot, Bihan Wen, "ExposureDiffusion: Learning to Expose for Low-light Image Enhancement", **ICCV 2023**
+- **Yufei Wang**, Yi Yu, Wenhan Yang, Lanqing Guo, Lap-Pui Chau, Alex Kot, Bihan Wen, "ExposureDiffusion: Learning to Expose for Low-light Image Enhancement", **ICCV 2023** [Preprint](https://arxiv.org/pdf/2307.07710.pdf)
 - L Guo, C Wang, W Yang, **Y Wang**, B Wen, "Boundary-Aware Divide and Conquer: A Diffusion-based Solution for Unsupervised Shadow Removal", **ICCV 2023**
 - **Yufei Wang**, et. al. , "Beyond Learned Metadata-based Raw Image Reconstruction", **Arxiv** [Paper](https://arxiv.org/pdf/2306.12058.pdf), [Code](https://github.com/wyf0912/R2LCM)
 - Shulin Tian\*, **Yufei Wang**\*，et. al. Enhancing low-light image using infrared encoded images, **ICIP 2023** [Paper](https://arxiv.org/pdf/2307.04122.pdf)
