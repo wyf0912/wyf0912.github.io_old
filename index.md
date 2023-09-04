@@ -35,4 +35,7 @@ Email: yufei001@e.ntu.edu.sg
 - **Yufei Wang**, Haoliang Li, and Alex C. Kot. "Heterogeneous domain generalization via domain mixup." ICASSP 2020-2020 IEEE International Conference on Acoustics, Speech and Signal Processing (**ICASSP**). IEEE, 2020. [Paper](https://arxiv.org/pdf/2009.05448.pdf) and [Code](https://github.com/wyf0912/MIXALL)
 - Haoliang Li, **Yufei Wang**, et al. "Domain Generalization for Medical Imaging Classification with Linear-Dependency Regularization." **NeurIPS** (2020). [Paper](https://arxiv.org/pdf/2009.12829.pdf) and [Code](https://github.com/wyf0912/LDDG)
 - Haoliang Li*, **Yufei Wang***,  et al. "Light Can Hack Your Face! Black-box Backdoor Attack on Face Recognition Systems." arXiv preprint arXiv:2009.06996 (2020). [Paper](https://arxiv.org/pdf/2009.06996.pdf)
-- Tian C X, Li H, **Wang Y,** et al. Privacy-Preserving Constrained Domain Generalization for Medical Image Classification[J]. arXiv preprint arXiv:2105.08511, 2021. 
+- Tian C X, Li H, **Wang Y,** et al. Privacy-Preserving Constrained Domain Generalization for Medical Image Classification[J]. arXiv preprint arXiv:2105.08511, 2021.
+
+# Academic Services
+Reviewer: IJCV, AAAI, ICLR, NeurIPS, TMM, TCSVT, etc.
