@@ -1,4 +1,4 @@
-# Yufei Wang
+# Yufei Wang (王雨飞)
 ### Ph.D Student
 #### Advised by: Prof. Bihan Wen, Prof. Lap-Pui Chau and Prof. Alex Kot
 Research interest: computer vision, robustness of neural networks
@@ -21,6 +21,7 @@ Email: yufei001@e.ntu.edu.sg
 ## Preprints and Publications
 - **Yufei Wang**, Yi Yu, Wenhan Yang, Lanqing Guo, Lap-Pui Chau, Alex Kot, Bihan Wen, "ExposureDiffusion: Learning to Expose for Low-light Image Enhancement", **ICCV 2023** [Preprint](https://arxiv.org/pdf/2307.07710.pdf), and [Code](https://github.com/wyf0912/ExposureDiffusion)
 - L Guo, C Wang, W Yang, **Y Wang**, B Wen, "Boundary-Aware Divide and Conquer: A Diffusion-based Solution for Unsupervised Shadow Removal", **ICCV 2023**
+- Tian C X, Li H, **Wang Y**, Wang S, Privacy-Preserving Constrained Domain Generalization via Gradient Alignment, IEEE Transactions on Knowledge and Data Engineering (TKDE 2023)![image](https://github.com/wyf0912/wyf0912.github.io/assets/26561397/5bdb31d3-9d1c-45ab-a8c9-3756c6ead031)
 - **Yufei Wang**, et. al. , "Beyond Learned Metadata-based Raw Image Reconstruction", **Arxiv** [Paper](https://arxiv.org/pdf/2306.12058.pdf), [Code](https://github.com/wyf0912/R2LCM)
 - Shulin Tian\*, **Yufei Wang**\*，et. al. Enhancing low-light image using infrared encoded images, **ICIP 2023** [Paper](https://arxiv.org/pdf/2307.04122.pdf)
 - **Yufei Wang**, Yi Yu, Wenhan Yang, Lanqing Guo, Lap-Pui Chau, Alex Kot, Bihan Wen, "Raw Image Reconstruction with Learned Compact Metadata", **CVPR 2023** [Paper](https://arxiv.org/pdf/2302.12995.pdf), [Code](https://github.com/wyf0912/R2LCM)
