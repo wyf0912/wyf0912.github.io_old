@@ -39,4 +39,4 @@ Email: yufei001@e.ntu.edu.sg
 - Tian C X, Li H, **Wang Y,** et al. Privacy-Preserving Constrained Domain Generalization for Medical Image Classification[J]. arXiv preprint arXiv:2105.08511, 2021.
 
 ## Academic Services
-Reviewer: IJCV, AAAI, ICLR, NeurIPS, TMM, TCSVT, etc.
+Reviewer: TPAMI, IJCV, TIP, TNNLS, AAAI, ICLR, NeurIPS, TMM, TCSVT, etc.
