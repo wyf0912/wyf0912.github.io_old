@@ -1,13 +1,13 @@
 # Yufei Wang (王雨飞)
-### Ph.D Student
-#### Advised by: Prof. Bihan Wen, Prof. Lap-Pui Chau and Prof. Alex Kot
+### Ph.D. Student
+#### Advised by: Prof. Bihan Wen, Prof. Lap-Pui Chau, and Prof. Alex Kot
 Research interest: computer vision, robustness of neural networks
 
 Email: yufei001@e.ntu.edu.sg
 
 [Google Scholar](https://scholar.google.com/citations?user=jLd1l_sAAAAJ)
 ## Education　
-- 2016–2020,  University of Electronic Science and Technology of China (UESTC) , BEng
+- 2016–2020,  University of Electronic Science and Technology of China (UESTC), BEng
   - Computer science and technology
 - 2020–*now*,  Nanyang Technological University (NTU), Ph.D Student
   - Rapid-Rich Object Search Lab (ROSE) 
@@ -40,4 +40,4 @@ Email: yufei001@e.ntu.edu.sg
 - Tian C X, Li H, **Wang Y,** et al. Privacy-Preserving Constrained Domain Generalization for Medical Image Classification[J]. arXiv preprint arXiv:2105.08511, 2021.
 
 ## Academic Services
-Reviewer: TPAMI, IJCV, TIP, TNNLS, AAAI, ICLR, NeurIPS, TMM, TCSVT, etc.
+Reviewer: TPAMI, IJCV, TIP, TNNLS, ICML, AAAI, ICLR, NeurIPS, TMM, TCSVT, etc.
