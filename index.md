@@ -1,7 +1,7 @@
 # Yufei Wang (王雨飞)
 ### Ph.D. Student
 #### Advised by: Prof. Bihan Wen, Prof. Lap-Pui Chau, and Prof. Alex Kot
-Research interest: computer vision, robustness of neural networks
+Research interest: computer vision, generative models, image restoration, compression
 
 Email: yufei001@e.ntu.edu.sg
 
