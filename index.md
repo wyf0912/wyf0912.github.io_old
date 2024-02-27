@@ -1,4 +1,4 @@
-# Yufei Wang (王雨飞)
+# Yufei Wang
 ### Ph.D. Student
 #### Advised by: Prof. Bihan Wen, Prof. Lap-Pui Chau, and Prof. Alex Kot
 Research interest: computer vision, generative models, image restoration, compression
@@ -19,7 +19,8 @@ Email: yufei001@e.ntu.edu.sg
 - SDSC Dissertation Research Fellowship 2022     S$ 10,000
  
 ## Preprints and Publications
-- **Yufei Wang**, et. al., "SinSR: Diffusion-Based Image Super-Resolution in a Single Step", [Preprint](https://arxiv.org/pdf/2311.14760.pdf), and [Code](https://github.com/wyf0912/SinSR)
+- **Yufei Wang**, et. al., "SinSR: Diffusion-Based Image Super-Resolution in a Single Step", **CVPR 2024** [Preprint](https://arxiv.org/pdf/2311.14760.pdf), and [Code](https://github.com/wyf0912/SinSR)
+-	C Wang, L Guo, **Y Wang**, H Cheng, Y Yu, B Wen, “Progressive Divide-and-Conquer via Subsampling Decomposition for Accelerated MRI“,  **CVPR 2024**
 - **Yufei Wang**, Yi Yu, Wenhan Yang, Lanqing Guo, Lap-Pui Chau, Alex Kot, Bihan Wen, "ExposureDiffusion: Learning to Expose for Low-light Image Enhancement", **ICCV 2023** [Preprint](https://arxiv.org/pdf/2307.07710.pdf), and [Code](https://github.com/wyf0912/ExposureDiffusion)
 - L Guo, C Wang, W Yang, **Y Wang**, B Wen, "Boundary-Aware Divide and Conquer: A Diffusion-based Solution for Unsupervised Shadow Removal", **ICCV 2023**
 - Tian C X, Li H, **Wang Y**, Wang S, “Privacy-Preserving Constrained Domain Generalization via Gradient Alignment”, IEEE Transactions on Knowledge and Data Engineering, **TKDE 2023**
